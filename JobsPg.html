@@ -1,0 +1,49 @@
+<!--
+    This is a simple HTML page for a job listing and application form.
+    It includes a title, a welcome message, a list of available positions,
+    and a form for users to apply for a job.!-->
+<!DOCTYPE html>
+
+<html lang="en">   
+
+<head>
+    <meta charset="UTF-8"><!-- Covers for search engines and accreditsa author -->
+    <meta name="Jobs" content="Jobs Page, web development, job listings, positions">
+    <title>Jobs Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta author="Samuel Macciocca">
+    <meta name="description" content="A simple HTML page for job listings and application form.">
+    <meta name="keywords" content="Jobs, web development, job listings, positions">
+</html>
+
+<h1>Jobs Page</h1><!-- Main title of the page -->
+<!-- Intro to general page usage-->
+<p>Welcome to the Jobs Page! Here you can find various job listings and opportunities.</p>
+
+<p>We are currently looking for talented individuals to join our team, both juniour and senior positions. Below are the available positions:</p>
+
+<ul><!-- List of available positions -->
+    <li>Front End Web Developer/Back End Web Developer</li>
+    <li>Fullstack Web Dev</li>
+    <li>Data Scientist</li>
+</ul>
+
+<!-- Form for job application -->
+<!-- The form allows users to submit their application with required fields and file uploads -->
+<form action="submit_application.php" method="post" enctype="multipart/form-data">
+    <h2>Apply for a Job</h2>
+    name: <input type="text" name="name" required><br>
+    email: <input type="email" name="email" required><br>
+    phone: <input type="tel" name="phone" required><br>
+    position: 
+    <select name="position" required>
+        <option value="">Select a position</option>
+        <option value="Front End Web Developer/Back End Web Developer">Front End Web Developer/Back End Web Developer</option>
+        <option value="Fullstack Web Dev">Fullstack Web Dev</option>
+        <option value="Data Scientist">Data Scientist</option>
+    </select><br>
+    resume: <input type="file" name="resume" accept=".pdf,.doc,.docx" required><br>
+    cover letter: <input type="file" name="cover_letter" accept=".pdf,.doc,.docx" required><br>
+    <input type="submit" value="Submit Application">
+    <input type="reset" value="Reset Form"><br>
+</form>
