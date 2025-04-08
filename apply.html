@@ -28,6 +28,29 @@
             </section>
         </fieldset>
         <fieldset>
+            <legend>Location</legend>
+            <section><label for="state">State or territory</label>
+                <select name="state" id="state" required="required">
+                    <option value="act">ACT</option>
+                    <option value="vic">VIC</option>
+                    <option value="nsw">NSW</option>
+                    <option value="nt">NT</option>
+                    <option value="sa">SA</option>
+                    <option value="wa">WA</option>
+                    <option value="tas">TAS</option>
+                    <option value="qld">QLD</option>
+                </select>
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" required="required" pattern="[1-9 1-9][a-z A-Z]">
+            </section>
+
+
+
+
+
+        </fieldset>
+
+        <fieldset>
             <legend>Other Details</legend>
             <section><label for="date-of-birth">Date of birth</label>
                 
