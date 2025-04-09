@@ -22,7 +22,7 @@
         </fieldset>
         <fieldset><legend>Contact details</legend>
             <section><label for="email">Email</label>
-                <input type="text" name="email" id="email" required="required" pattern="[a-z A-Z 1-9]+@[a-z A-Z 1-9]+\.[a-z A-Z 1-9]{3,}">
+                <input type="text" name="email" id="email" required="required" pattern="[a-z A-Z 1-9]+@[a-z A-Z 1-9]+\.[a-z A-Z 1-9]{3,}" title="example@example.example">
                 <label for="phone-number">Mobile phone number</label>
                 <input type="tel" name="phone-number" id="phone-number" required="required" pattern="[0-9]{4,17}">
             </section>
@@ -35,17 +35,17 @@
                     <option value="vic">VIC</option>
                     <option value="nsw">NSW</option>
                     <option value="nt">NT</option>
-                    <option value="sa">SA</option>
+                    <option value="sa">SA</option>  
                     <option value="wa">WA</option>
                     <option value="tas">TAS</option>
                     <option value="qld">QLD</option>
                 </select>
                 <label for="address">Address</label>
-                <input type="text" name="address" id="address" required="required" pattern="[1-9][a-z][A-Z]">
+                <input type="text" name="address" id="address" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
             </section>
 
 
-
+            
 
 
         </fieldset>
@@ -53,7 +53,7 @@
         <fieldset>
             <legend>Other Details</legend>
             <section><label for="date-of-birth">Date of birth</label>
-                <input type="text" name="date-of-birth" id="date-of-birth" required="required" pattern="">
+                <input type="text" name="date-of-birth" id="date-of-birth" required="required" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
                 
                 <input type="radio" name="gender" id="male" value="Male" required="required">
                 <label for="male">Male</label>
@@ -61,6 +61,13 @@
                 <label for="female">Female</label>
                 <input type="radio" name="gender" id="other/prefer-not-to-say" value="Other/prefer not to say">
                 <label for="other/prefer-not-to-say">Other/prefer not to say</label>
+                
+                <br>
+                <label for="willing-to-move">Are you willing to move closer to our office?</label>
+                <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
+
+                
+
             </section>
         </fieldset>
 
