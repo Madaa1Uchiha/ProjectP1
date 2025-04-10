@@ -31,13 +31,13 @@ it takes various info such as their state, name, gender which role they are appl
             <legend>Your name</legend>
             <div>
                 <label for="first-name">First name</label>
-                <input type="text" name="first-name" id="first-name" required pattern="[a-zA-Z]" maxlength="20">
+                <input type="text" name="first-name" id="first-name"  pattern="[^0-9]*" maxlength="20" required>
                 
                 <label for="middle-name">Middle name</label>
-                <input type="text" name="middle-name" id="middle-name" value="optional" pattern="[a-zA-Z]" maxlength="20">
+                <input type="text" name="middle-name" id="middle-name" value="optional" pattern="[^0-9]*" maxlength="20">
                 
                 <label for="last-name">Last name</label>
-                <input type="text" name="last-name" id="last-name" required pattern="[a-zA-Z]" maxlength="20">
+                <input type="text" name="last-name" id="last-name"  pattern="[^0-9]*" maxlength="20" required>
             </div>
             
         </fieldset>
