@@ -1,24 +1,33 @@
+<!--
+this page is where applicants fill out there information into the various forms to be submitted
+it takes various info such as their state, name, gender which role they are applying to and other important info
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--meta info-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Cole Souquet-Wigg">
     <meta name="description" content="Apply for a job and join the team">
     <meta name="keywords" content="jobs, careers, apply, career opportunity">
     <title>Apply Page</title>
+    <!--linked to the css file for our website-->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!--header for the page-->
     <header>
         <h1>Apply Page</h1>
         <nav>
+            <!--navigation back to previous page and to the home page-->
             <a href="jobs.html">Back to Jobs</a>
             <a href="index.html">Home</a>
         </nav>
     </header>
     <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
         <fieldset>
+            <!--name of applicant is entered here-->
             <legend>Your name</legend>
             <div>
                 <label for="first-name">First name</label>
@@ -35,6 +44,7 @@
         <fieldset>
             <legend>Contact details</legend>
             <div>
+                <!--contact details for the applicant are collected here-->
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" required pattern="[a-z A-Z 1-9]+@[a-z A-Z 1-9]+\.[a-z A-Z 1-9]{3,}" title="example@example.example">
                 <label for="phone-number">Mobile phone number</label>
@@ -44,6 +54,7 @@
         <fieldset>
             <legend>Location</legend>
             <div>
+                <!--dropdown selection for the applicants state-->
                 <label for="state">State or territory</label>
                 <select name="state" id="state" required>
                     <option value="">State</option>
@@ -56,6 +67,7 @@
                     <option value="tas">TAS</option>
                     <option value="qld">QLD</option>
                 </select>
+                <!--collect the applicants address-->
                 <label for="address">Address</label>
                 <input type="text" name="address" id="address" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
             </div>
@@ -65,9 +77,11 @@
         <fieldset>
             <legend>Other Details</legend>
             <div>
+                <!--date of birth of the applicant is collected-->
                 <label for="date-of-birth">Date of birth</label>
                 <input type="text" name="date-of-birth" id="date-of-birth" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
                 
+                <!--a radio input for the applicant to select their gender-->
                 <input type="radio" name="gender" id="male" value="Male" required>
                 <label for="male">Male</label>
                 <input type="radio" name="gender" id="female" value="Female" >
@@ -75,6 +89,7 @@
                 <input type="radio" name="gender" id="other/prefer-not-to-say" value="Other/prefer not to say">
                 <label for="other/prefer-not-to-say">Other/prefer not to say</label>
                 
+                <!--checkbox to indicate wether the applicant is willing to move-->
                 <br>
                 <label for="willing-to-move">Are you willing to move closer to our office?</label>
                 <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
@@ -83,6 +98,7 @@
         </fieldset>
 
         <fieldset>
+            <!--dropdown menu to specify the position the client is applying for-->
             <label for="position">Which position you are applying for</label>
             <select name="position" id="position" required>
                 <option value="">Position</option>
@@ -90,8 +106,10 @@
                 <option value="data-scientist">Data Scientist</option>
             </select>
         </fieldset>
+        <!--buttons to submit the info or reset-->
         <input type= "submit" value="Apply"> <input type= "reset" value="Reset Form">
     </form>
+    <!--footer-->
     <footer>
         <p>&copy; 2025 Apply Page. All rights reserved.</p>
     </footer>
