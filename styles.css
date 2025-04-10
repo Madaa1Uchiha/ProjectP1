@@ -1,0 +1,56 @@
+/* General styles for the entire page */
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif; /* Set the font style for the entire page */
+    margin: 0; /* Remove default margin from the body */
+    padding: 0; /* Remove default padding from the body */
+    background-color: #003709f3; /* Set the background color of the page */
+    color: #1f0039; /* Set the default text color */
+    text-align: center; /* Center-align all text by default */
+}
+
+/* Header styles */
+header {
+    background-color: #002506f3; /* Set the background color of the header */
+    color: rgb(60, 0, 255); /* Set the text color inside the header */
+    padding: 1rem; /* Add padding inside the header for spacing */
+    text-align: center; /* Center-align the header content */
+}
+
+/* Navigation list styles inside the header */
+header nav ul {
+    list-style-type: none; /* Remove default bullet points from the navigation list */
+    padding: 0; /* Remove default padding from the list */
+    margin: 0; /* Remove default margin from the list */
+}
+
+/* Link styles for all anchor tags */
+a {
+    color: #007bff; /* Set the default color for links */
+    text-decoration: none; /* Remove the underline from links */
+}
+
+a:hover {
+    text-decoration: underline; /* Add an underline to links when hovered */
+}
+
+/* Section styles for content areas */
+section {
+    text-align: left; /* Align text to the left inside sections */
+    margin: 1rem; /* Add margin around each section */
+    padding: 1rem; /* Add padding inside each section */
+}
+
+/* Heading styles for <h2> elements */
+h2 {
+    color: #28003ef3; /* Set the color for headings */
+    font-size: 1.5rem; /* Set the font size for headings */
+    margin-bottom: 0.5rem; /* Add space below the heading */
+    text-align: center; /* Center-align all headings */
+}
+
+/* Example class for a container element */
+.container {
+    max-width: 1200px; /* Set the maximum width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 1rem; /* Add padding inside the container */
+}
