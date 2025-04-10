@@ -31,13 +31,13 @@ it takes various info such as their state, name, gender which role they are appl
             <legend>Your name</legend>
             <div>
                 <label for="first-name">First name</label>
-                <input type="text" name="first-name" id="first-name" required>
+                <input type="text" name="first-name" id="first-name" required pattern="[a-zA-Z]" maxlength="20">
                 
                 <label for="middle-name">Middle name</label>
-                <input type="text" name="middle-name" id="middle-name" value="optional">
+                <input type="text" name="middle-name" id="middle-name" value="optional" pattern="[a-zA-Z]" maxlength="20">
                 
                 <label for="last-name">Last name</label>
-                <input type="text" name="last-name" id="last-name" required>
+                <input type="text" name="last-name" id="last-name" required pattern="[a-zA-Z]" maxlength="20">
             </div>
             
         </fieldset>
@@ -48,7 +48,7 @@ it takes various info such as their state, name, gender which role they are appl
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" required pattern="[a-z A-Z 1-9]+@[a-z A-Z 1-9]+\.[a-z A-Z 1-9]{3,}" title="example@example.example">
                 <label for="phone-number">Mobile phone number</label>
-                <input type="tel" name="phone-number" id="phone-number" required pattern="[0-9]{4,17}">
+                <input type="tel" name="phone-number" id="phone-number" required pattern="[0-9]{8,12}">
             </div>
         </fieldset>
         <fieldset>
@@ -69,7 +69,9 @@ it takes various info such as their state, name, gender which role they are appl
                 </select>
                 <!--collect the applicants address-->
                 <label for="address">Address</label>
-                <input type="text" name="address" id="address" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
+                <input type="text" name="address" id="address" maxlength="40" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
+                <label for="suburb">Suburb/Town</label>
+                <input type="text" name="suburb" id="suburb" required maxlength="40">
             </div>
 
         </fieldset>
@@ -93,6 +95,9 @@ it takes various info such as their state, name, gender which role they are appl
                 <br>
                 <label for="willing-to-move">Are you willing to move closer to our office?</label>
                 <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
+                
+                <label for="other-skills">Other Skills</label>
+                <textarea name="other-skills" id="other-skills"></textarea>
 
             </div>
         </fieldset>
@@ -100,11 +105,11 @@ it takes various info such as their state, name, gender which role they are appl
         <fieldset>
             <!--dropdown menu to specify the position the client is applying for-->
             <legend>Position</legend>
-            <label for="position">Which position you are applying for</label>
+            <label for="position">Job Reference Number</label>
             <select name="position" id="position" required>
-                <option value="">Position</option>
-                <option value="fullstack-wev-developer">Fullstack Web Developer</option>
-                <option value="data-scientist">Data Scientist</option>
+                <option value="">Reference number</option>
+                <option value="FSD123">FSD123</option>
+                <option value="DS456">DS456</option>
             </select>
         </fieldset>
         <!--buttons to submit the info or reset-->
