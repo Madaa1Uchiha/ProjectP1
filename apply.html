@@ -3,34 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply</title>
+    <meta name="author" content="Cole Souquet-Wigg">
+    <meta name="description" content="Apply for a job and join the team">
+    <meta name="keywords" content="jobs, careers, apply, career opportunity">
+    <title>Apply Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>Apply Page</h1>
+        <nav>
+            <a href="jobs.html">Back to Jobs</a>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
     <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
         <fieldset>
             <legend>Your name</legend>
-            <section><label for="first-name">First name</label>
-                <input type="text" name="first-name" id="first-name" required="required">
+            <div>
+                <label for="first-name">First name</label>
+                <input type="text" name="first-name" id="first-name" required>
                 
                 <label for="middle-name">Middle name</label>
-                <input type="text" name="middle-name" id="middle-name">
+                <input type="text" name="middle-name" id="middle-name" value="optional">
                 
                 <label for="last-name">Last name</label>
-                <input type="text" name="last-name" id="last-name" required="required">
-            </section>
+                <input type="text" name="last-name" id="last-name" required>
+            </div>
             
         </fieldset>
-        <fieldset><legend>Contact details</legend>
-            <section><label for="email">Email</label>
-                <input type="text" name="email" id="email" required="required" pattern="[a-z A-Z 1-9]+@[a-z A-Z 1-9]+\.[a-z A-Z 1-9]{3,}" title="example@example.example">
+        <fieldset>
+            <legend>Contact details</legend>
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" required pattern="[a-z A-Z 1-9]+@[a-z A-Z 1-9]+\.[a-z A-Z 1-9]{3,}" title="example@example.example">
                 <label for="phone-number">Mobile phone number</label>
-                <input type="tel" name="phone-number" id="phone-number" required="required" pattern="[0-9]{4,17}">
-            </section>
+                <input type="tel" name="phone-number" id="phone-number" required pattern="[0-9]{4,17}">
+            </div>
         </fieldset>
         <fieldset>
             <legend>Location</legend>
-            <section><label for="state">State or territory</label>
-                <select name="state" id="state" required="required">
+            <div>
+                <label for="state">State or territory</label>
+                <select name="state" id="state" required>
+                    <option value="">State</option>
                     <option value="act">ACT</option>
                     <option value="vic">VIC</option>
                     <option value="nsw">NSW</option>
@@ -41,21 +57,18 @@
                     <option value="qld">QLD</option>
                 </select>
                 <label for="address">Address</label>
-                <input type="text" name="address" id="address" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
-            </section>
-
-
-            
-
+                <input type="text" name="address" id="address" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
+            </div>
 
         </fieldset>
 
         <fieldset>
             <legend>Other Details</legend>
-            <section><label for="date-of-birth">Date of birth</label>
-                <input type="text" name="date-of-birth" id="date-of-birth" required="required" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
+            <div>
+                <label for="date-of-birth">Date of birth</label>
+                <input type="text" name="date-of-birth" id="date-of-birth" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
                 
-                <input type="radio" name="gender" id="male" value="Male" required="required">
+                <input type="radio" name="gender" id="male" value="Male" required>
                 <label for="male">Male</label>
                 <input type="radio" name="gender" id="female" value="Female" >
                 <label for="female">Female</label>
@@ -66,19 +79,21 @@
                 <label for="willing-to-move">Are you willing to move closer to our office?</label>
                 <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
 
-                
-
-            </section>
+            </div>
         </fieldset>
 
-
-
-
-
-
-
-
+        <fieldset>
+            <label for="position">Which position you are applying for</label>
+            <select name="position" id="position" required>
+                <option value="">Position</option>
+                <option value="fullstack-wev-developer">Fullstack Web Developer</option>
+                <option value="data-scientist">Data Scientist</option>
+            </select>
+        </fieldset>
         <input type= "submit" value="Apply"> <input type= "reset" value="Reset Form">
     </form>
+    <footer>
+        <p>&copy; 2025 Apply Page. All rights reserved.</p>
+    </footer>
 </body>
 </html>
