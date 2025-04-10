@@ -208,11 +208,55 @@ body {
     border: 2px solid #444;
     display: block;
     margin: 0 auto;
-  }
+    }
   
-  .group-photo figcaption {
+    .group-photo figcaption {
     font-size: 0.9rem;
     margin-top: 0.5rem;
     color: #333;
+    }
+    header {
+    text-align: center;
+  padding: 20px;
+  position: relative;
   }
-  
+  .header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  }
+
+  header {
+  text-align: center;
+  padding: 20px;
+  }
+
+  .header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  }
+  .logo {
+  height: 150px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-45%);
+  }
+
+  .nav-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  }
+
+  .nav-links li a {
+  text-decoration: none;
+  font-weight: bold;
+  colour: #004225; /* match your theme */
+  }
