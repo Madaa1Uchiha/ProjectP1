@@ -15,113 +15,115 @@ it takes various info such as their state, name, gender which role they are appl
     <!--linked to the css file for our website-->
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body class="apply">
-    <!--header for the page-->
-    <header>
-        <h1>LSCL Applications</h1>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="jobs.html">Jobs</a></li>
-            <li><a href="apply.html">Apply</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </nav>
-    </header>
-    <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
-        <fieldset>
-            <!--name of applicant is entered here-->
-            <legend>Your name</legend>
-            <div>
-                <label for="first-name">First name</label>
-                <input type="text" name="first-name" id="first-name"  pattern="[^0-9]*" maxlength="20" required>
+<main>
+    <body class="apply">
+        <!--header for the page-->
+        <header>
+            <h1>LSCL Applications</h1>
+            <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="apply.html">Apply</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            </nav>
+        </header>
+        <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+            <fieldset>
+                <!--name of applicant is entered here-->
+                <legend>Your name</legend>
+                <div>
+                    <label for="first-name">First name</label>
+                    <input type="text" name="first-name" id="first-name"  pattern="[^0-9]*" maxlength="20" required>
+                    
+                    <label for="middle-name">Middle name</label>
+                    <input type="text" name="middle-name" id="middle-name" value="optional" pattern="[^0-9]*" maxlength="20">
+                    
+                    <label for="last-name">Last name</label>
+                    <input type="text" name="last-name" id="last-name"  pattern="[^0-9]*" maxlength="20" required>
+                </div>
                 
-                <label for="middle-name">Middle name</label>
-                <input type="text" name="middle-name" id="middle-name" value="optional" pattern="[^0-9]*" maxlength="20">
-                
-                <label for="last-name">Last name</label>
-                <input type="text" name="last-name" id="last-name"  pattern="[^0-9]*" maxlength="20" required>
-            </div>
-            
-        </fieldset>
-        <fieldset>
-            <legend>Contact details</legend>
-            <div>
-                <!--contact details for the applicant are collected here-->
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" required pattern="[a-z A-Z 1-9]+@[a-z A-Z 1-9]+\.[a-z A-Z 1-9]{3,}" title="example@example.example">
-                <label for="phone-number">Mobile phone number</label>
-                <input type="tel" name="phone-number" id="phone-number" required pattern="[0-9]{8,12}">
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>Location</legend>
-            <div>
-                <!--dropdown selection for the applicants state-->
-                <label for="state">State or territory</label>
-                <select name="state" id="state" required>
-                    <option value="">State</option>
-                    <option value="act">ACT</option>
-                    <option value="vic">VIC</option>
-                    <option value="nsw">NSW</option>
-                    <option value="nt">NT</option>
-                    <option value="sa">SA</option>  
-                    <option value="wa">WA</option>
-                    <option value="tas">TAS</option>
-                    <option value="qld">QLD</option>
+            </fieldset>
+            <fieldset>
+                <legend>Contact details</legend>
+                <div>
+                    <!--contact details for the applicant are collected here-->
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" required pattern="[a-z A-Z 1-9]+@[a-z A-Z 1-9]+\.[a-z A-Z 1-9]{3,}" title="example@example.example">
+                    <label for="phone-number">Mobile phone number</label>
+                    <input type="tel" name="phone-number" id="phone-number" required pattern="[0-9]{8,12}">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Location</legend>
+                <div>
+                    <!--dropdown selection for the applicants state-->
+                    <label for="state">State or territory</label>
+                    <select name="state" id="state" required>
+                        <option value="">State</option>
+                        <option value="act">ACT</option>
+                        <option value="vic">VIC</option>
+                        <option value="nsw">NSW</option>
+                        <option value="nt">NT</option>
+                        <option value="sa">SA</option>  
+                        <option value="wa">WA</option>
+                        <option value="tas">TAS</option>
+                        <option value="qld">QLD</option>
+                    </select>
+                    <!--collect the applicants address-->
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" maxlength="40" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
+                    <label for="suburb">Suburb/Town</label>
+                    <input type="text" name="suburb" id="suburb" required maxlength="40">
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Other Details</legend>
+                <div>
+                    <!--date of birth of the applicant is collected-->
+                    <label for="date-of-birth">Date of birth</label>
+                    <input type="text" name="date-of-birth" id="date-of-birth" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
+                    
+                    <!--a radio input for the applicant to select their gender-->
+                    <input type="radio" name="gender" id="male" value="Male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="Female" >
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" id="other/prefer-not-to-say" value="Other/prefer not to say">
+                    <label for="other/prefer-not-to-say">Other/prefer not to say</label>
+                    
+                    <!--checkbox to indicate wether the applicant is willing to move-->
+                    <br>
+                    <label for="willing-to-move">Are you willing to move closer to our office?</label>
+                    <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
+                    
+                    <label for="other-skills">Other Skills</label>
+                    <textarea name="other-skills" id="other-skills"></textarea>
+
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <!--dropdown menu to specify the position the client is applying for-->
+                <legend>Position</legend>
+                <label for="position">Job Reference Number</label>
+                <select name="position" id="position" required>
+                    <option value="">Reference number</option>
+                    <option value="FSD123">FSD123</option>
+                    <option value="DS456">DS456</option>
                 </select>
-                <!--collect the applicants address-->
-                <label for="address">Address</label>
-                <input type="text" name="address" id="address" maxlength="40" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
-                <label for="suburb">Suburb/Town</label>
-                <input type="text" name="suburb" id="suburb" required maxlength="40">
-            </div>
-
-        </fieldset>
-
-        <fieldset>
-            <legend>Other Details</legend>
-            <div>
-                <!--date of birth of the applicant is collected-->
-                <label for="date-of-birth">Date of birth</label>
-                <input type="text" name="date-of-birth" id="date-of-birth" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
-                
-                <!--a radio input for the applicant to select their gender-->
-                <input type="radio" name="gender" id="male" value="Male" required>
-                <label for="male">Male</label>
-                <input type="radio" name="gender" id="female" value="Female" >
-                <label for="female">Female</label>
-                <input type="radio" name="gender" id="other/prefer-not-to-say" value="Other/prefer not to say">
-                <label for="other/prefer-not-to-say">Other/prefer not to say</label>
-                
-                <!--checkbox to indicate wether the applicant is willing to move-->
-                <br>
-                <label for="willing-to-move">Are you willing to move closer to our office?</label>
-                <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
-                
-                <label for="other-skills">Other Skills</label>
-                <textarea name="other-skills" id="other-skills"></textarea>
-
-            </div>
-        </fieldset>
-
-        <fieldset>
-            <!--dropdown menu to specify the position the client is applying for-->
-            <legend>Position</legend>
-            <label for="position">Job Reference Number</label>
-            <select name="position" id="position" required>
-                <option value="">Reference number</option>
-                <option value="FSD123">FSD123</option>
-                <option value="DS456">DS456</option>
-            </select>
-        </fieldset>
-        <!--buttons to submit the info or reset-->
-        <input type= "submit" value="Apply"> <input type= "reset" value="Reset Form">
-    </form>
-    <!--footer-->
+            </fieldset>
+            <!--buttons to submit the info or reset-->
+            <input type= "submit" value="Apply"> <input type= "reset" value="Reset Form">
+        </form>
+        <!--footer-->
+    </main>
     <footer>
         <p>
-            <a href="mailto:info@LSCLGroup.com.au">Contact Us</a> | 
+            <a href="info@LSCLGroup.com.au">Contact Us</a> | 
             <a href="about.html">About</a>
         </p>
         <p>
