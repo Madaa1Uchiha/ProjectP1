@@ -260,3 +260,23 @@ body {
   font-weight: bold;
   colour: #004225;
   }
+
+#male {
+  position: relative;
+  right: 50%;
+}
+
+#female {
+  position: relative;
+  right: 50%;
+}
+
+#other-prefer-not-to-say {
+  position: relative;
+  right: 50%;
+}
+
+#willing-to-move {
+  position: relative;
+  right: 50%;
+}
