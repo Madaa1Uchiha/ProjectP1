@@ -260,3 +260,41 @@ body {
   font-weight: bold;
   colour: #004225;
   }
+
+#male {
+  position: relative;
+  right: 50%;
+  bottom: 2em;
+}
+
+#female {
+  position: relative;
+  right: 50%;
+  bottom: 2em;
+}
+
+#other-prefer-not-to-say {
+  position: relative;
+  right: 50%;
+  bottom: 2em;
+}
+
+#willing-to-move {
+  position: relative;
+  right: 50%;
+  bottom: 2em;
+}
+
+.checkandradio{
+  position: relative;
+  left: 2.5%;
+}
+
+.DOB{
+  position: relative;
+  bottom: 1.5em;
+}
+
+
+
+

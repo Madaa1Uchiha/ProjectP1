@@ -15,8 +15,9 @@ it takes various info such as their state, name, gender which role they are appl
     <!--linked to the css file for our website-->
     <link rel="stylesheet" href="styles/styles.css">
 </head>
+<body>
 <main>
-    <body class="apply">
+    
         <!--header for the page-->
         <header>
             <h1>LSCL Applications</h1>
@@ -29,6 +30,7 @@ it takes various info such as their state, name, gender which role they are appl
             </ul>
             </nav>
         </header>
+    
         <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
             <fieldset>
                 <!--name of applicant is entered here-->
@@ -84,22 +86,24 @@ it takes various info such as their state, name, gender which role they are appl
                 <legend>Other Details</legend>
                 <div>
                     <!--date of birth of the applicant is collected-->
-                    <label for="date-of-birth">Date of birth</label>
-                    <input type="text" name="date-of-birth" id="date-of-birth" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
+                    <label for="date-of-birth" class="DOB">Date of birth</label>
+                    <input type="text" name="date-of-birth" id="date-of-birth" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" class="DOB">
+                    <div id="radiocheck">
+                        <!--a radio input for the applicant to select their gender-->
+                        <label for="male" class="checkandradio">Male</label>
+                        <input type="radio" name="gender" id="male" value="Male" required>
                     
-                    <!--a radio input for the applicant to select their gender-->
-                    <input type="radio" name="gender" id="male" value="Male" required>
-                    <label for="male">Male</label>
-                    <input type="radio" name="gender" id="female" value="Female" >
-                    <label for="female">Female</label>
-                    <input type="radio" name="gender" id="other/prefer-not-to-say" value="Other/prefer not to say">
-                    <label for="other/prefer-not-to-say">Other/prefer not to say</label>
+                        <label for="female" class="checkandradio">Female</label>
+                        <input type="radio" name="gender" id="female" value="Female" >
+                   
+                        <label for="other-prefer-not-to-say" class="checkandradio">Other/prefer not to say</label>
+                        <input type="radio" name="gender" id="other-prefer-not-to-say" value="Other/prefer not to say">
                     
-                    <!--checkbox to indicate wether the applicant is willing to move-->
-                    <br>
-                    <label for="willing-to-move">Are you willing to move closer to our office?</label>
-                    <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
-                    
+                        <!--checkbox to indicate wether the applicant is willing to move-->
+                        <br>
+                        <label for="willing-to-move" class="checkandradio">Are you willing to move closer to our office?</label>
+                        <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
+                    </div>
                     <label for="other-skills">Other Skills</label>
                     <textarea name="other-skills" id="other-skills"></textarea>
 
@@ -130,7 +134,7 @@ it takes various info such as their state, name, gender which role they are appl
             <a href="https://github.com/Madaa1Uchiha/ProjectP1" target="_blank">GitHub Repository</a> | 
             <a href="https://swing01group.atlassian.net/jira/software/projects/CRM/summary" target="_blank">Jira Project</a>
         </p>
-        <hr/>
+        <hr>
         <p>&copy; 2025 LSCL Group – COS10026 Web Tech Project</p>
     </footer>
 </body>
