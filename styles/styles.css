@@ -304,6 +304,14 @@ body {
   bottom: 1.5em;
 }
 
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
 
 
 
