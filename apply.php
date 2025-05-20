@@ -51,10 +51,10 @@ it takes various info such as their state, name, gender which role they are appl
                 <input type="text" name="last-name" id="last-name" pattern="[^0-9]*" maxlength="20" required>
             </fieldset>
             <fieldset>
-            <label for="skills">Skills</label>
-            <textarea name="other-skills" id="other-skills"></textarea>
-            <textarea name="other-skills" id="other-skills"></textarea>
-            <textarea name="other-skills" id="other-skills"></textarea>
+            <label>Skills</label>
+            <textarea name="skills1" id="skills1"></textarea>
+            <textarea name="skills2" id="skills2"></textarea>
+            <textarea name="skills3" id="skills3"></textarea>
             </fieldset>
             <fieldset>
                 <legend>Contact details</legend>
