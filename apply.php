@@ -22,14 +22,23 @@ it takes various info such as their state, name, gender which role they are appl
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="jobs.html">Jobs</a></li>
-                <li><a href="apply.html">Apply</a></li>
+                <li><a href="apply.php">Apply</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+        <form method="post" action="process_eoi.php">
+        <fieldset>
+                <legend>Position</legend>
+                <label for="position">Job Reference Number</label>
+                <select name="position" id="position" required>
+                    <option value="">Reference number</option>
+                    <option value="FSD123">FSD123</option>
+                    <option value="DS456">DS456</option>
+                </select>
+            </fieldset>
             <fieldset>
                 <legend>Your name</legend>
                 <label for="first-name">First name</label>
@@ -41,7 +50,12 @@ it takes various info such as their state, name, gender which role they are appl
                 <label for="last-name">Last name</label>
                 <input type="text" name="last-name" id="last-name" pattern="[^0-9]*" maxlength="20" required>
             </fieldset>
-
+            <fieldset>
+            <label for="skills">Skills</label>
+            <textarea name="other-skills" id="other-skills"></textarea>
+            <textarea name="other-skills" id="other-skills"></textarea>
+            <textarea name="other-skills" id="other-skills"></textarea>
+            </fieldset>
             <fieldset>
                 <legend>Contact details</legend>
                 <label for="email">Email</label>
@@ -94,16 +108,6 @@ it takes various info such as their state, name, gender which role they are appl
 
                 <label for="other-skills">Other Skills</label>
                 <textarea name="other-skills" id="other-skills"></textarea>
-            </fieldset>
-
-            <fieldset>
-                <legend>Position</legend>
-                <label for="position">Job Reference Number</label>
-                <select name="position" id="position" required>
-                    <option value="">Reference number</option>
-                    <option value="FSD123">FSD123</option>
-                    <option value="DS456">DS456</option>
-                </select>
             </fieldset>
 
             <input type="submit" value="Apply">
