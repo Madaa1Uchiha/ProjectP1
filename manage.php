@@ -2,8 +2,13 @@
 <html>
 <head>
   <title>EOI_Search</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Sebastian Mills">
+        <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+    <?php include 'header.inc'; ?>
     <form method="GET" >
         <label>Display all EOI</label>
         <input type="submit" name="Display_all"value="Display">
@@ -17,7 +22,8 @@
         <label>Search Name:</label>
         <input type="text" name="name" required>
         <input type="submit" value="Search">
-    </form>  
+    </form>
+    <?php include 'footer.inc'; ?> 
 </body>
 </html>
 
