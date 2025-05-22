@@ -23,24 +23,24 @@ $otherskills = trim($_POST['other-skills']);
 $postcode = trim($_POST['postcode']);
 
 $positionSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$firstnameSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$middlenameSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$lastnameSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$skills1SAN = filter_var($position, FILTER_SANITIZE_STRING);
-$skills2SAN = filter_var($position, FILTER_SANITIZE_STRING);
-$skills3SAN = filter_var($position, FILTER_SANITIZE_STRING);
+$firstnameSAN = filter_var($firstname, FILTER_SANITIZE_STRING);
+$middlenameSAN = filter_var($middlename, FILTER_SANITIZE_STRING);
+$lastnameSAN = filter_var($lastname, FILTER_SANITIZE_STRING);
+$skills1SAN = filter_var($skills1, FILTER_SANITIZE_STRING);
+$skills2SAN = filter_var($skills2, FILTER_SANITIZE_STRING);
+$skills3SAN = filter_var($skills3, FILTER_SANITIZE_STRING);
 $emailSAN = filter_var($email, FILTER_SANITIZE_EMAIL);
-$phonenumberSAN = filter_var($position, FILTER_SANITIZE_NUMBER_INT);
-$stateSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$addressSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$suburbSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$dobSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$genderSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$willingtomoveSAN = filter_var($position, FILTER_VALIDATE_BOOLEAN);
-$otherskillsSAN = filter_var($position, FILTER_SANITIZE_STRING);
-$postcodeSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$phonenumberSAN = filter_var($phonenumber, FILTER_SANITIZE_NUMBER_INT);
+$stateSAN = filter_var($state, FILTER_SANITIZE_STRING);
+$addressSAN = filter_var($address, FILTER_SANITIZE_STRING);
+$suburbSAN = filter_var($suburb, FILTER_SANITIZE_STRING);
+$dobSAN = filter_var($dob, FILTER_SANITIZE_STRING);
+$genderSAN = filter_var($gender, FILTER_SANITIZE_STRING);
+$willingtomoveSAN = filter_var($willingtomove, FILTER_VALIDATE_BOOLEAN);
+$otherskillsSAN = filter_var($otherskills, FILTER_SANITIZE_STRING);
+$postcodeSAN = filter_var($postcode, FILTER_SANITIZE_STRING);
 
-if (!filter_var($phonenumberSAN, FILTER_VALIDATE_INT) === false) {
+if (!filter_var($phonenumberSAN, FILTER_VALIDATE_INT) === true) {
     if (!filter_var($emailSAN, FILTER_VALIDATE_EMAIL) === false) {   
   
 
