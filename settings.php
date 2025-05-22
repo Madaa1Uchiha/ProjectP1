@@ -9,8 +9,4 @@ $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> a21cc990f250a828cffbf9be59c583a872bff5de
