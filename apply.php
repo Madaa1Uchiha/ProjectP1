@@ -15,18 +15,7 @@ it takes various info such as their state, name, gender which role they are appl
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <header>
-        <h1>LSCL Applications</h1>
-        <img src="images/logo.jpg" alt="LSCL Logo" class="logo" />
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html">Jobs</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include 'include/header.inc'; ?>
 
     <main>
         <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
@@ -111,17 +100,6 @@ it takes various info such as their state, name, gender which role they are appl
         </form>
     </main>
 
-    <footer>
-        <p>
-            <a href="mailto:info@LSCLGroup.com.au">Contact Us</a> | 
-            <a href="about.html">About</a>
-        </p>
-        <p>
-            <a href="https://github.com/Madaa1Uchiha/ProjectP1" target="_blank">GitHub Repository</a> | 
-            <a href="https://swing01group.atlassian.net/jira/software/projects/CRM/summary" target="_blank">Jira Project</a>
-        </p>
-        <hr/>
-        <p>&copy; 2025 LSCL Group – COS10026 Web Tech Project</p>
-    </footer>
+    <?php include 'include/footer.inc'; ?>
 </body>
 </html>
