@@ -81,7 +81,7 @@ it takes various info such as their state, name, gender which role they are appl
                 </select>
 
                 <label for="address">Address</label>
-                <input type="text" name="address" id="address" maxlength="40" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
+                <input type="text" name="address" id="address" maxlength="40"   >
 
                 <label for="suburb">Suburb/Town</label>
                 <input type="text" name="suburb" id="suburb" required maxlength="40">
