@@ -51,15 +51,15 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS `project_part_2`.`eoi` (`EOInumb
    `email_address` TEXT NOT NULL , `phone_number` VARCHAR(12) NOT NULL ,
     `state` TEXT NOT NULL , `address` VARCHAR (40) NOT NULL , `suburb_town` VARCHAR(40) NOT NULL ,
      `postcode` INT NOT NULL , `date_of_birth` TEXT NOT NULL , `gender` TEXT NOT NULL ,
-      `willing_to_move` BOOLEAN NOT NULL , `other_skills` TEXT ,
+      `willing_to_move` BOOLEAN NOT NULL , `other_skills` TEXT , `status` TEXT NOT NULL,
        PRIMARY KEY (`EOInumber`), UNIQUE `email` (`email_address`)) ENGINE = InnoDB;";
        mysqli_query($conn, $createTableQuery);
 
 $query = "INSERT INTO eoi (reference_code, first_name, middle_name, last_name, 
 skills1, skills2, skills3, email_address, phone_number, state, address, suburb_town, postcode, date_of_birth, gender,
-willing_to_move, other_skills) VALUES ('$positionSAN', '$firstnameSAN', '$middlenameSAN', '$lastnameSAN'
+willing_to_move, other_skills, `status`) VALUES ('$positionSAN', '$firstnameSAN', '$middlenameSAN', '$lastnameSAN'
 , '$skills1SAN', '$skills2SAN', '$skills3SAN', '$emailSAN', '$phonenumberSAN', '$stateSAN'
-, '$addressSAN', '$suburbSAN','$postcodeSAN', '$dobSAN', '$genderSAN', '$willingtomoveSAN', '$otherskillsSAN')";
+, '$addressSAN', '$suburbSAN','$postcodeSAN', '$dobSAN', '$genderSAN', '$willingtomoveSAN', '$otherskillsSAN', 'NEW')";
 $result = mysqli_query($conn, $query);
 
 if ($result) {
