@@ -15,7 +15,7 @@ it takes various info such as their state, name, gender which role they are appl
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <?php include 'include/header.inc'; ?>
+    <?php include 'header.inc'; ?>
 
     <main>
         <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
@@ -100,6 +100,6 @@ it takes various info such as their state, name, gender which role they are appl
         </form>
     </main>
 
-    <?php include 'include/footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
 </body>
 </html>

@@ -19,7 +19,7 @@
 
 <body>
     <!-- Header section with navigation -->
-    <?php include 'include/header.inc'; ?>
+    <?php include 'header.inc'; ?>
 
     <!-- Main content area -->
     <main>
@@ -83,6 +83,6 @@
         <p>&copy; 2025 Jobs Page. All rights reserved.</p>
     </footer>
 </body>
-<?php include 'include/footer.inc'; ?>
+<?php include 'footer.inc'; ?>
 
 </html>

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-  <?php include 'include/header.inc'; ?>
+  <?php include 'header.inc'; ?>
   <main>
     <section>
       <h2>Group Information</h2>
@@ -92,6 +92,6 @@
     </section>
   </main>
 
-  <?php include 'include/footer.inc'; ?>
+  <?php include 'footer.inc'; ?>
 </body>
 </html>
