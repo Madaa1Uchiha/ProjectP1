@@ -50,7 +50,7 @@ $postcodeSAN = filter_var($postcode, FILTER_SANITIZE_STRING);
 
 if (!filter_var($phonenumberSAN, FILTER_VALIDATE_INT) === true) {
     if (!filter_var($emailSAN, FILTER_VALIDATE_EMAIL) === false) {   
-
+// this code started just always sending users back so is commented out rn as its not 100% essential
        /* if (empty($positionSAN)||($firstnameSAN)||($lastnameSAN)||($skills1SAN)
         ||($skills2SAN)||($skills3SAN)||($emailSAN)||($phonenumberSAN)||($stateSAN)
         ||($addressSAN)||($suburbSAN)||($dobSAN)||($genderSAN)||($willingtomoveSAN)||($otherskillsSAN)
