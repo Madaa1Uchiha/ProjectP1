@@ -112,7 +112,7 @@ it takes various info such as their state, name, gender which role they are appl
                 <label for="other-skills">Other Skills</label>
                 <textarea name="other-skills" id="other-skills"></textarea>
             </fieldset>
-
+            <input type="hidden" name="allow_access" value="true">
             <input type="submit" value="Apply">
             <input type="reset" value="Reset Form">
         </form>

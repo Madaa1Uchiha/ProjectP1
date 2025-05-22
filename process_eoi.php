@@ -1,4 +1,11 @@
 <?php
+
+if (!isset($_POST['allow_access']) || $_POST['allow_access'] === true) {
+    // The user hasn't submitted the form, deny access.
+    header("Location: apply.php");
+    die();
+  }
+else{
 require_once("settings.php");
 
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
@@ -42,7 +49,13 @@ $postcodeSAN = filter_var($postcode, FILTER_SANITIZE_STRING);
 
 if (!filter_var($phonenumberSAN, FILTER_VALIDATE_INT) === true) {
     if (!filter_var($emailSAN, FILTER_VALIDATE_EMAIL) === false) {   
-  
+
+        if (empty($positionSAN)||($firstnameSAN)||($lastnameSAN)||($skills1SAN)
+        ||($skills2SAN)||($skills3SAN)||($emailSAN)||($phonenumberSAN)||($stateSAN)
+        ||($addressSAN)||($suburbSAN)||($dobSAN)||($genderSAN)||($willingtomoveSAN)||($otherskillsSAN)
+        ||($postcodeSAN)) {
+            header("Location: apply.php");
+          }
 
 $createTableQuery = "CREATE TABLE IF NOT EXISTS `project_part_2`.`eoi` (`EOInumber` INT NOT NULL AUTO_INCREMENT ,
 `reference_code` TEXT NOT NULL , `first_name` VARCHAR(20) NOT NULL ,
@@ -85,5 +98,5 @@ else {
 }
 else 
 {echo ("integer is invalid");}
-
+}
 ?>
