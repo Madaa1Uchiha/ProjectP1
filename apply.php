@@ -15,6 +15,7 @@ it takes various info such as their state, name, gender which role they are appl
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+<<<<<<< HEAD
     <header>
         <h1>LSCL Applications</h1>
         <img src="images/logo.jpg" alt="LSCL Logo" class="logo" />
@@ -39,6 +40,12 @@ it takes various info such as their state, name, gender which role they are appl
                     <option value="DS456">DS456</option>
                 </select>
             </fieldset>
+=======
+    <?php include 'header.inc'; ?>
+
+    <main>
+        <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+>>>>>>> a21cc990f250a828cffbf9be59c583a872bff5de
             <fieldset>
                 <legend>Your name</legend>
                 <label for="first-name">First name</label>
@@ -50,12 +57,16 @@ it takes various info such as their state, name, gender which role they are appl
                 <label for="last-name">Last name</label>
                 <input type="text" name="last-name" id="last-name" pattern="[^0-9]*" maxlength="20" required>
             </fieldset>
+<<<<<<< HEAD
             <fieldset>
             <label>Skills</label>
             <textarea name="skills1" id="skills1"></textarea>
             <textarea name="skills2" id="skills2"></textarea>
             <textarea name="skills3" id="skills3"></textarea>
             </fieldset>
+=======
+
+>>>>>>> a21cc990f250a828cffbf9be59c583a872bff5de
             <fieldset>
                 <legend>Contact details</legend>
                 <label for="email">Email</label>
@@ -81,6 +92,7 @@ it takes various info such as their state, name, gender which role they are appl
                 </select>
 
                 <label for="address">Address</label>
+<<<<<<< HEAD
                 <input type="text" name="address" id="address" maxlength="40"   >
 
                 <label for="suburb">Suburb/Town</label>
@@ -88,6 +100,12 @@ it takes various info such as their state, name, gender which role they are appl
 
                 <label for="postcode">Postcode</label>
                 <input type="text" name="postcode" id="postcode">
+=======
+                <input type="text" name="address" id="address" maxlength="40" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
+
+                <label for="suburb">Suburb/Town</label>
+                <input type="text" name="suburb" id="suburb" required maxlength="40">
+>>>>>>> a21cc990f250a828cffbf9be59c583a872bff5de
             </fieldset>
 
             <fieldset>
@@ -112,12 +130,27 @@ it takes various info such as their state, name, gender which role they are appl
                 <label for="other-skills">Other Skills</label>
                 <textarea name="other-skills" id="other-skills"></textarea>
             </fieldset>
+<<<<<<< HEAD
             <input type="hidden" name="allow_access" value="true">
+=======
+
+            <fieldset>
+                <legend>Position</legend>
+                <label for="position">Job Reference Number</label>
+                <select name="position" id="position" required>
+                    <option value="">Reference number</option>
+                    <option value="FSD123">FSD123</option>
+                    <option value="DS456">DS456</option>
+                </select>
+            </fieldset>
+
+>>>>>>> a21cc990f250a828cffbf9be59c583a872bff5de
             <input type="submit" value="Apply">
             <input type="reset" value="Reset Form">
         </form>
     </main>
 
+<<<<<<< HEAD
     <footer>
         <p>
             <a href="mailto:info@LSCLGroup.com.au">Contact Us</a> | 
@@ -130,5 +163,8 @@ it takes various info such as their state, name, gender which role they are appl
         <hr/>
         <p>&copy; 2025 LSCL Group – COS10026 Web Tech Project</p>
     </footer>
+=======
+    <?php include 'footer.inc'; ?>
+>>>>>>> a21cc990f250a828cffbf9be59c583a872bff5de
 </body>
 </html>
