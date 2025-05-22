@@ -22,6 +22,28 @@ $willingtomove = trim($_POST['willing-to-move']);
 $otherskills = trim($_POST['other-skills']);
 $postcode = trim($_POST['postcode']);
 
+$positionSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$firstnameSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$middlenameSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$lastnameSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$skills1SAN = filter_var($position, FILTER_SANITIZE_STRING);
+$skills2SAN = filter_var($position, FILTER_SANITIZE_STRING);
+$skills3SAN = filter_var($position, FILTER_SANITIZE_STRING);
+$emailSAN = filter_var($email, FILTER_SANITIZE_EMAIL);
+$phonenumberSAN = filter_var($position, FILTER_SANITIZE_NUMBER_INT);
+$stateSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$addressSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$suburbSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$dobSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$genderSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$willingtomoveSAN = filter_var($position, FILTER_VALIDATE_BOOLEAN);
+$otherskillsSAN = filter_var($position, FILTER_SANITIZE_STRING);
+$postcodeSAN = filter_var($position, FILTER_SANITIZE_STRING);
+
+if (!filter_var($phonenumber, FILTER_VALIDATE_INT) === false) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {   
+  
+
 $createTableQuery = "CREATE TABLE IF NOT EXISTS `project_part_2`.`eoi` (`EOInumber` INT NOT NULL AUTO_INCREMENT ,
 `reference_code` TEXT NOT NULL , `first_name` VARCHAR(20) NOT NULL ,
  `middle_name` VARCHAR(20), `last_name` VARCHAR(20) NOT NULL ,
@@ -35,9 +57,9 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS `project_part_2`.`eoi` (`EOInumb
 
 $query = "INSERT INTO eoi (reference_code, first_name, middle_name, last_name, 
 skills1, skills2, skills3, email_address, phone_number, state, address, suburb_town, postcode, date_of_birth, gender,
-willing_to_move, other_skills) VALUES ('$position', '$firstname', '$middlename', '$lastname'
-, '$skills1', '$skills2', '$skills3', '$email', '$phonenumber', '$state'
-, '$address', '$suburb','$postcode', '$dob', '$gender', '$willingtomove', '$otherskills')";
+willing_to_move, other_skills) VALUES ('$positionSAN', '$firstnameSAN', '$middlenameSAN', '$lastnameSAN'
+, '$skills1SAN', '$skills2SAN', '$skills3SAN', '$emailSAN', '$phonenumberSAN', '$stateSAN'
+, '$addressSAN', '$suburbSAN','$postcodeSAN', '$dobSAN', '$genderSAN', '$willingtomoveSAN', '$otherskillsSAN')";
 $result = mysqli_query($conn, $query);
 
 if ($result) {
@@ -56,4 +78,11 @@ else {
     echo "Application failed. Please try again.";
    
   }
+}
+
+else {echo ("email format is invalid");}
+}
+else 
+{echo ("integer is invalid");}
+
 ?>
