@@ -85,6 +85,9 @@ it takes various info such as their state, name, gender which role they are appl
 
                 <label for="suburb">Suburb/Town</label>
                 <input type="text" name="suburb" id="suburb" required maxlength="40">
+
+                <label for="postcode">Postcode</label>
+                <input type="text" name="postcode" id="postcode">
             </fieldset>
 
             <fieldset>
