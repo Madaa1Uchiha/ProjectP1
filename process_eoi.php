@@ -40,8 +40,8 @@ $willingtomoveSAN = filter_var($position, FILTER_VALIDATE_BOOLEAN);
 $otherskillsSAN = filter_var($position, FILTER_SANITIZE_STRING);
 $postcodeSAN = filter_var($position, FILTER_SANITIZE_STRING);
 
-if (!filter_var($phonenumber, FILTER_VALIDATE_INT) === false) {
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {   
+if (!filter_var($phonenumberSAN, FILTER_VALIDATE_INT) === false) {
+    if (!filter_var($emailSAN, FILTER_VALIDATE_EMAIL) === false) {   
   
 
 $createTableQuery = "CREATE TABLE IF NOT EXISTS `project_part_2`.`eoi` (`EOInumber` INT NOT NULL AUTO_INCREMENT ,
@@ -80,7 +80,8 @@ else {
   }
 }
 
-else {echo ("email format is invalid");}
+else {
+    echo ("email format is invalid");}
 }
 else 
 {echo ("integer is invalid");}
