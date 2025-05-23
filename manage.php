@@ -73,7 +73,7 @@ if (isset($_GET['Display_all']))
 else if (isset($_GET['job_number'])) 
 {
     $job_num = mysqli_real_escape_string($conn, $_GET['job_number']);
-    $sql = "SELECT * FROM EOI WHERE `Job Reference number` LIKE '%$job_num%'";
+    $sql = "SELECT * FROM EOI WHERE `reference_code` LIKE '%$job_num%'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) 
@@ -114,7 +114,7 @@ else if (isset($_GET['job_number']))
 else if (isset($_GET['name'])) 
 {
     $name = mysqli_real_escape_string($conn, $_GET['name']);
-    $sql = "SELECT * FROM EOI WHERE `First name` LIKE '%$name%' OR `Last name` LIKE '%$name%'";
+    $sql = "SELECT * FROM EOI WHERE `first_name` LIKE '%$name%' OR `last_name` LIKE '%$name%'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) 
