@@ -1,5 +1,5 @@
 <?php
-
+ini_set('display_errors', 0);
 if (!isset($_POST['allow_access'])) {
     // The user hasn't submitted the form, deny access.
     
