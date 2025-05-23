@@ -207,23 +207,24 @@ body {
     padding: 1.5rem;
   }
   .group-photo {
-    margin: 1rem auto;
-    text-align: center;
+    float: left;
+    margin: 1rem 1rem 1rem 0;
+    width: fit-content;
+    text-align: left;
   }
   
   .group-photo img {
-    width: 300px; 
+    width: 300px;
     height: auto;
     border: 2px solid #444;
     display: block;
-    margin: 0 auto;
-    }
+  }
   
-    .group-photo figcaption {
+  .group-photo figcaption {
     font-size: 0.9rem;
     margin-top: 0.5rem;
     color: #333;
-    }
+  }  
     header {
     text-align: center;
   padding: 20px;
@@ -313,5 +314,35 @@ body {
   border-radius: 8px;
 }
 
+/* ----- About Page Extras ----- */
+.student-id {
+  float: right;
+  font-style: italic;
+  font-size: 0.9rem;
+}
 
+.member-name {
+  font-weight: bold;
+}
 
+figure.group-photo {
+  border: 2px solid #444;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  text-align: center;
+  width: fit-content;
+}
+
+.group-photo img {
+  width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #444;
+}
+
+.group-photo figcaption {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #333;
+}
