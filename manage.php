@@ -38,9 +38,9 @@ if (isset($_GET['Display_all']))
     if (mysqli_num_rows($result) > 0) 
     {
         echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Last name</th><th>Street address</th><th>Suburb/town</th>
-        <th>State</th><th>Postcode</th><th>Email address</th><th>Phone number</th><th>Skill1</th><th>Skill2</th>
-        <th>Skill3</th><th>Other Skill</th></tr>";
+        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
+        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
+        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th></tr>";
         while ($row = mysqli_fetch_assoc($result)) 
         {
             echo "<tr>";
@@ -52,6 +52,8 @@ if (isset($_GET['Display_all']))
             echo "<td>" . $row['skills1'] . "</td>";
             echo "<td>" . $row['skills2'] . "</td>";
             echo "<td>" . $row['skills3'] . "</td>";
+            echo "<td>" . $row['email_address'] . "</td>";
+            echo "<td>" . $row['phone_number'] . "</td>";
             echo "<td>" . $row['state'] . "</td>";
             echo "<td>" . $row['address'] . "</td>";
             echo "<td>" . $row['suburb_town'] . "</td>";
@@ -79,9 +81,9 @@ else if (isset($_GET['job_number']))
     if (mysqli_num_rows($result) > 0) 
     {
         echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Last name</th><th>Street address</th><th>Suburb/town</th>
-        <th>State</th><th>Postcode</th><th>Email address</th><th>Phone number</th><th>Skill1</th><th>Skill2</th>
-        <th>Skill3</th><th>Other Skill</th></tr>";
+        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
+        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
+        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th></tr>";
         while ($row = mysqli_fetch_assoc($result)) 
         {
             echo "<tr>";
@@ -93,6 +95,8 @@ else if (isset($_GET['job_number']))
             echo "<td>" . $row['skills1'] . "</td>";
             echo "<td>" . $row['skills2'] . "</td>";
             echo "<td>" . $row['skills3'] . "</td>";
+            echo "<td>" . $row['email_address'] . "</td>";
+            echo "<td>" . $row['phone_number'] . "</td>";
             echo "<td>" . $row['state'] . "</td>";
             echo "<td>" . $row['address'] . "</td>";
             echo "<td>" . $row['suburb_town'] . "</td>";
@@ -105,7 +109,7 @@ else if (isset($_GET['job_number']))
             echo "</tr>";
         }
         echo "</table>";
-    } 
+    }
     else 
     {
         echo "No matching found.";
@@ -120,9 +124,9 @@ else if (isset($_GET['name']))
     if (mysqli_num_rows($result) > 0) 
     {
         echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Last name</th><th>Street address</th><th>Suburb/town</th>
-        <th>State</th><th>Postcode</th><th>Email address</th><th>Phone number</th><th>Skill1</th><th>Skill2</th>
-        <th>Skill3</th><th>Other Skill</th></tr>";
+        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
+        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
+        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th></tr>";
         while ($row = mysqli_fetch_assoc($result)) 
         {
             echo "<tr>";
@@ -134,6 +138,8 @@ else if (isset($_GET['name']))
             echo "<td>" . $row['skills1'] . "</td>";
             echo "<td>" . $row['skills2'] . "</td>";
             echo "<td>" . $row['skills3'] . "</td>";
+            echo "<td>" . $row['email_address'] . "</td>";
+            echo "<td>" . $row['phone_number'] . "</td>";
             echo "<td>" . $row['state'] . "</td>";
             echo "<td>" . $row['address'] . "</td>";
             echo "<td>" . $row['suburb_town'] . "</td>";
@@ -146,7 +152,9 @@ else if (isset($_GET['name']))
             echo "</tr>";
         }
         echo "</table>";
-    } else {
+    }
+    else 
+    {
         echo "No matching found.";
     }
 } else {
@@ -156,9 +164,9 @@ else if (isset($_GET['name']))
     if (mysqli_num_rows($result) > 0) 
     {
         echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Last name</th><th>Street address</th><th>Suburb/town</th>
-        <th>State</th><th>Postcode</th><th>Email address</th><th>Phone number</th><th>Skill1</th><th>Skill2</th>
-        <th>Skill3</th><th>Other Skill</th></tr>";
+        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
+        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
+        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th></tr>";
         while ($row = mysqli_fetch_assoc($result)) 
         {
             echo "<tr>";
@@ -170,6 +178,8 @@ else if (isset($_GET['name']))
             echo "<td>" . $row['skills1'] . "</td>";
             echo "<td>" . $row['skills2'] . "</td>";
             echo "<td>" . $row['skills3'] . "</td>";
+            echo "<td>" . $row['email_address'] . "</td>";
+            echo "<td>" . $row['phone_number'] . "</td>";
             echo "<td>" . $row['state'] . "</td>";
             echo "<td>" . $row['address'] . "</td>";
             echo "<td>" . $row['suburb_town'] . "</td>";
