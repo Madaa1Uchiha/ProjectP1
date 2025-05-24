@@ -9,6 +9,7 @@
 </head>
 <body>
     <?php include 'header.inc'; ?>
+    <h2>Search for Applicants</h2>
     <form method="GET" >
         <label>Display all EOI</label>
         <input type="submit" name="Display_all"value="Display">
@@ -23,6 +24,7 @@
         <input type="text" name="name" required>
         <input type="submit" value="Search">
     </form>
+    <h2>Applicants</h2>
     <?php include 'footer.inc'; ?> 
 </body>
 </html>
@@ -35,131 +37,99 @@ if (isset($_GET['Display_all']))
     $sql = "SELECT * FROM EOI";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) 
+    {
         echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Last name</th><th>Street address</th><th>Suburb/town</th>
-        <th>State</th><th>Postcode</th><th>Email address</th><th>Phone number</th><th>Skill1</th><th>Skill2</th>
-        <th>Skill3</th><th>Other Skill</th></tr>";
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . $row['EOInumber'] . "</td>";
-            echo "<td>" . $row['Job Reference number'] . "</td>";
-            echo "<td>" . $row['First name'] . "</td>";
-            echo "<td>" . $row['Last name'] . "</td>";
-            echo "<td>" . $row['Street address'] . "</td>";
-            echo "<td>" . $row['Suburb/town'] . "</td>";
-            echo "<td>" . $row['State'] . "</td>";
-            echo "<td>" . $row['Postcode'] . "</td>";
-            echo "<td>" . $row['Email address'] . "</td>";
-            echo "<td>" . $row['Phone number'] . "</td>";
-            echo "<td>" . $row['Skill1'] . "</td>";
-            echo "<td>" . $row['Skill2'] . "</td>";
-            echo "<td>" . $row['Skill3'] . "</td>";
-            echo "<td>" . $row['Other Skills'] . "</td>";
-            echo "</tr>";
+        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
+        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
+        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th><th></th></tr>";
+        while ($row = mysqli_fetch_assoc($result)) 
+        {
+            include 'table.inc';
         }
         echo "</table>";
-    } else {
+    } 
+    else 
+    {
         echo "No matching found.";
     }
 }
 else if (isset($_GET['job_number'])) 
 {
     $job_num = mysqli_real_escape_string($conn, $_GET['job_number']);
-    $sql = "SELECT * FROM EOI WHERE `Job Reference number` LIKE '%$job_num%'";
+    $sql = "SELECT * FROM EOI WHERE `reference_code` LIKE '%$job_num%'";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) 
+    {
         echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Last name</th><th>Street address</th><th>Suburb/town</th>
-        <th>State</th><th>Postcode</th><th>Email address</th><th>Phone number</th><th>Skill1</th><th>Skill2</th>
-        <th>Skill3</th><th>Other Skill</th></tr>";
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . $row['EOInumber'] . "</td>";
-            echo "<td>" . $row['Job Reference number'] . "</td>";
-            echo "<td>" . $row['First name'] . "</td>";
-            echo "<td>" . $row['Last name'] . "</td>";
-            echo "<td>" . $row['Street address'] . "</td>";
-            echo "<td>" . $row['Suburb/town'] . "</td>";
-            echo "<td>" . $row['State'] . "</td>";
-            echo "<td>" . $row['Postcode'] . "</td>";
-            echo "<td>" . $row['Email address'] . "</td>";
-            echo "<td>" . $row['Phone number'] . "</td>";
-            echo "<td>" . $row['Skill1'] . "</td>";
-            echo "<td>" . $row['Skill2'] . "</td>";
-            echo "<td>" . $row['Skill3'] . "</td>";
-            echo "<td>" . $row['Other Skills'] . "</td>";
-            echo "</tr>";
+        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
+        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
+        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th><th></th></tr>";
+        while ($row = mysqli_fetch_assoc($result)) 
+        {
+            include 'table.inc';
         }
         echo "</table>";
-    } else {
+    }
+    else 
+    {
         echo "No matching found.";
     }
 }
 else if (isset($_GET['name'])) 
 {
     $name = mysqli_real_escape_string($conn, $_GET['name']);
-    $sql = "SELECT * FROM EOI WHERE `First name` LIKE '%$name%' OR `Last name` LIKE '%$name%'";
+    $sql = "SELECT * FROM EOI WHERE `first_name` LIKE '%$name%' OR `last_name` LIKE '%$name%'";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) 
+    {
         echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Last name</th><th>Street address</th><th>Suburb/town</th>
-        <th>State</th><th>Postcode</th><th>Email address</th><th>Phone number</th><th>Skill1</th><th>Skill2</th>
-        <th>Skill3</th><th>Other Skill</th></tr>";
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . $row['EOInumber'] . "</td>";
-            echo "<td>" . $row['Job Reference number'] . "</td>";
-            echo "<td>" . $row['First name'] . "</td>";
-            echo "<td>" . $row['Last name'] . "</td>";
-            echo "<td>" . $row['Street address'] . "</td>";
-            echo "<td>" . $row['Suburb/town'] . "</td>";
-            echo "<td>" . $row['State'] . "</td>";
-            echo "<td>" . $row['Postcode'] . "</td>";
-            echo "<td>" . $row['Email address'] . "</td>";
-            echo "<td>" . $row['Phone number'] . "</td>";
-            echo "<td>" . $row['Skill1'] . "</td>";
-            echo "<td>" . $row['Skill2'] . "</td>";
-            echo "<td>" . $row['Skill3'] . "</td>";
-            echo "<td>" . $row['Other Skills'] . "</td>";
-            echo "</tr>";
+        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
+        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
+        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th><th></th></tr>";
+        while ($row = mysqli_fetch_assoc($result)) 
+        {
+            include 'table.inc';
         }
         echo "</table>";
-    } else {
+    }
+    else 
+    {
         echo "No matching found.";
     }
-} else {
-        $sql = "SELECT * FROM EOI";
+} 
+else 
+{
+    $sql = "SELECT * FROM EOI";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) 
+    {
         echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Last name</th><th>Street address</th><th>Suburb/town</th>
-        <th>State</th><th>Postcode</th><th>Email address</th><th>Phone number</th><th>Skill1</th><th>Skill2</th>
-        <th>Skill3</th><th>Other Skill</th></tr>";
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . $row['EOInumber'] . "</td>";
-            echo "<td>" . $row['Job Reference number'] . "</td>";
-            echo "<td>" . $row['First name'] . "</td>";
-            echo "<td>" . $row['Last name'] . "</td>";
-            echo "<td>" . $row['Street address'] . "</td>";
-            echo "<td>" . $row['Suburb/town'] . "</td>";
-            echo "<td>" . $row['State'] . "</td>";
-            echo "<td>" . $row['Postcode'] . "</td>";
-            echo "<td>" . $row['Email address'] . "</td>";
-            echo "<td>" . $row['Phone number'] . "</td>";
-            echo "<td>" . $row['Skill1'] . "</td>";
-            echo "<td>" . $row['Skill2'] . "</td>";
-            echo "<td>" . $row['Skill3'] . "</td>";
-            echo "<td>" . $row['Other Skills'] . "</td>";
-            echo "</tr>";
+        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
+        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
+        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th><th></th></tr>";
+        while ($row = mysqli_fetch_assoc($result)) 
+        {
+            include 'table.inc';
         }
         echo "</table>";
-    } else {
+    } 
+    else
+    {
         echo "No matching found.";
+    }
+}
+if (isset($_GET['deleteId'])) 
+{
+    $eoi_number = mysqli_real_escape_string($conn, $_GET['deleteId']);
+    $delete_sql = "DELETE FROM EOI WHERE EOInumber = '$eoi_number'";
+    
+    if (!mysqli_query($conn, $delete_sql)) 
+    {
+        echo "Error deleting record: " . mysqli_error($conn);
     }
 }
 
