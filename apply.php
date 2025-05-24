@@ -95,7 +95,7 @@ it takes various info such as their state, name, gender which role they are appl
 
                 <div>
                     <label for="willing-to-move" class="checkandradio">Are you willing to move closer to our office?</label>
-                    <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
+                    <input type="checkbox" name="willing-to-move" id="willing-to-move" value="1">
                   </div>                  
 
                 <label for="other-skills">Other Skills</label>
