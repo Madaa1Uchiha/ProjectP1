@@ -24,6 +24,14 @@
         <input type="text" name="name" required>
         <input type="submit" value="Search">
     </form>
+    <form method="GET" >
+        <label>Delete EOI by Job Reference Number:</label>
+        <select type="text" name="deleteNum" required>
+            <option value="">Reference number</option>
+            <option value="FSD123">FSD123</option>
+            <option value="DS456">DS456</option>
+        </select>
+        <input type="submit" value="delete">
     <h2>Applicants</h2>
     <?php include 'footer.inc'; ?> 
 </body>
@@ -122,6 +130,7 @@ else
         echo "No matching found.";
     }
 }
+
 if (isset($_GET['deleteId'])) 
 {
     $eoi_number = mysqli_real_escape_string($conn, $_GET['deleteId']);
@@ -131,7 +140,25 @@ if (isset($_GET['deleteId']))
     {
         echo "Error deleting record: " . mysqli_error($conn);
     }
+    else 
+    {
+        header("Location: manage.php");
+    }
 }
 
+if (isset($_GET['deleteNum'])) 
+{
+    $deleteNum = mysqli_real_escape_string($conn, $_GET['deleteNum']);
+    $delete_sql = "DELETE FROM EOI WHERE reference_code = '$deleteNum'";
+    
+    if (!mysqli_query($conn, $delete_sql)) 
+    {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+        else 
+    {
+        header("Location: manage.php");
+    }
+}
 mysqli_close($conn);
 ?>
