@@ -32,7 +32,7 @@ $address = trim($_POST['address']);
 $suburb = trim($_POST['suburb']);
 $dob = trim($_POST['date-of-birth']);
 $gender = trim($_POST['gender']);
-$willingtomove = trim($_POST['willing-to-move']);
+$willingtomove = isset($_POST['willing-to-move']) ? 1 : 0;
 $otherskills = trim($_POST['other-skills']);
 $postcode = trim($_POST['postcode']);
 
