@@ -44,7 +44,7 @@ $skills1SAN = filter_var($skills1, FILTER_SANITIZE_STRING);
 $skills2SAN = filter_var($skills2, FILTER_SANITIZE_STRING);
 $skills3SAN = filter_var($skills3, FILTER_SANITIZE_STRING);
 $emailSAN = filter_var($email, FILTER_SANITIZE_EMAIL);
-$phonenumberSAN = filter_var($phonenumber, FILTER_SANITIZE_NUMBER_INT);
+$phonenumberSAN = filter_var($phonenumber, FILTER_SANITIZE_STRING);
 $stateSAN = filter_var($state, FILTER_SANITIZE_STRING);
 $addressSAN = filter_var($address, FILTER_SANITIZE_STRING);
 $suburbSAN = filter_var($suburb, FILTER_SANITIZE_STRING);
@@ -54,7 +54,7 @@ $willingtomoveSAN = filter_var($willingtomove, FILTER_VALIDATE_BOOLEAN);
 $otherskillsSAN = filter_var($otherskills, FILTER_SANITIZE_STRING);
 $postcodeSAN = filter_var($postcode, FILTER_SANITIZE_STRING);
 
-if (filter_var($phonenumberSAN, FILTER_VALIDATE_INT)) {
+if (!empty($phonenumberSAN)) {
     if (filter_var($emailSAN, FILTER_VALIDATE_EMAIL)) {   
 // this code started just always sending users back so is commented out rn as its not 100% essential
        /* if (empty($positionSAN)||($firstnameSAN)||($lastnameSAN)||($skills1SAN)
