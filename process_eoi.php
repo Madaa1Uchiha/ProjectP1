@@ -1,5 +1,10 @@
 <?php
-ini_set('display_errors', 0);
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
 if (!isset($_POST['allow_access'])) {
     // The user hasn't submitted the form, deny access.
     
@@ -9,7 +14,7 @@ if (!isset($_POST['allow_access'])) {
 else{
 require_once("settings.php");
 
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+
 
 // getting the forms data
 $position = trim($_POST['position']);
@@ -48,8 +53,8 @@ $willingtomoveSAN = filter_var($willingtomove, FILTER_VALIDATE_BOOLEAN);
 $otherskillsSAN = filter_var($otherskills, FILTER_SANITIZE_STRING);
 $postcodeSAN = filter_var($postcode, FILTER_SANITIZE_STRING);
 
-if (!filter_var($phonenumberSAN, FILTER_VALIDATE_INT) === true) {
-    if (!filter_var($emailSAN, FILTER_VALIDATE_EMAIL) === false) {   
+if (filter_var($phonenumberSAN, FILTER_VALIDATE_INT)) {
+    if (filter_var($emailSAN, FILTER_VALIDATE_EMAIL)) {   
 // this code started just always sending users back so is commented out rn as its not 100% essential
        /* if (empty($positionSAN)||($firstnameSAN)||($lastnameSAN)||($skills1SAN)
         ||($skills2SAN)||($skills3SAN)||($emailSAN)||($phonenumberSAN)||($stateSAN)
@@ -76,6 +81,10 @@ willing_to_move, other_skills, `status`) VALUES ('$positionSAN', '$firstnameSAN'
 , '$addressSAN', '$suburbSAN','$postcodeSAN', '$dobSAN', '$genderSAN', '$willingtomoveSAN', '$otherskillsSAN', 'NEW')";
 $result = mysqli_query($conn, $query);
 
+if (mysqli_errno() == 1062) {
+    print 'Email already in use! please use another.';
+}
+    
 if ($result) {
     echo "Expression of interest recieved\nyour unique EOI number is";
      $EOInum = "SELECT EOInumber FROM `eoi` WHERE email_address = '$email' ";
