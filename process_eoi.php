@@ -90,10 +90,10 @@ willing_to_move, other_skills, `status`) VALUES ('$positionSAN', '$firstnameSAN'
 , '$addressSAN', '$suburbSAN','$postcodeSAN', '$dobSAN', '$genderSAN', '$willingtomoveSAN', '$otherskillsSAN', 'NEW')";
 $result = mysqli_query($conn, $query);
        
-if (mysqli_errno() == 1062) {
+if (mysqli_errno($conn) == 1062) {
     print 'Email already in use! please use another.';
 }
-    
+    else {
 if ($result) {
     echo "Expression of interest recieved\nyour unique EOI number is";
      $EOInum = "SELECT EOInumber FROM `eoi` WHERE email_address = '$email' ";
@@ -103,13 +103,14 @@ if ($result) {
     while($row = mysqli_fetch_assoc($getEOInum)) {
         echo ": " . $row["EOInumber"]. "<br>";
       }
-
+    
 
 }
 else {
     echo "Application failed. Please try again.";
    
   }
+}
 }
     }
 else {
