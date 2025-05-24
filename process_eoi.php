@@ -75,13 +75,21 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS `project_part_2`.`eoi` (`EOInumb
        PRIMARY KEY (`EOInumber`), UNIQUE `email` (`email_address`)) ENGINE = InnoDB;";
        mysqli_query($conn, $createTableQuery);
 
+       $checkEmailQuery = "SELECT email_address FROM eoi WHERE email_address = '$emailSAN'";
+       $emailResult = mysqli_query($conn, $checkEmailQuery);
+       
+       if (mysqli_num_rows($emailResult) > 0) {
+           // Email already exists
+           die("This email address is already in use. Please use a different email.");
+       } else {
+
 $query = "INSERT INTO eoi (reference_code, first_name, middle_name, last_name, 
 skills1, skills2, skills3, email_address, phone_number, state, address, suburb_town, postcode, date_of_birth, gender,
 willing_to_move, other_skills, `status`) VALUES ('$positionSAN', '$firstnameSAN', '$middlenameSAN', '$lastnameSAN'
 , '$skills1SAN', '$skills2SAN', '$skills3SAN', '$emailSAN', '$phonenumberSAN', '$stateSAN'
 , '$addressSAN', '$suburbSAN','$postcodeSAN', '$dobSAN', '$genderSAN', '$willingtomoveSAN', '$otherskillsSAN', 'NEW')";
 $result = mysqli_query($conn, $query);
-
+       
 if (mysqli_errno() == 1062) {
     print 'Email already in use! please use another.';
 }
@@ -103,7 +111,7 @@ else {
    
   }
 }
-
+    }
 else {
     echo ("email format is invalid");}
 }
