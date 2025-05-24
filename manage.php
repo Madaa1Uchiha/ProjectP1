@@ -16,7 +16,11 @@
     </form>
     <form method="GET" >
         <label>Search EOI by job number:</label>
-        <input type="text" name="job_number" required>
+        <select type="text" name="job_number" required>
+        <option value="">Reference number</option>
+        <option value="FSD123">FSD123</option>
+        <option value="DS456">DS456</option>
+    </select>
         <input type="submit" value="Search">
     </form>
     <form method="GET" >
