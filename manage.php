@@ -1,4 +1,4 @@
-<?php $pageTitle = 'LSCL Management Page'; ?>
+<?php $page_title = 'LSCL Management Page'; ?>
 
 <!DOCTYPE html>
 <html>

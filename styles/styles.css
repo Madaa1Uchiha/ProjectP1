@@ -11,13 +11,13 @@ body {
   background-color: #f4f4f4;
   color: #222;
   line-height: 1.6;
-  margin-bottom: 140px; /* Space for footer */
+  margin-bottom: 140px;
 }
 
 main {
   width: 90%;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem 1.5rem 1.5rem; 
 }
 
 /* Header */
@@ -34,6 +34,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  position: relative;
 }
 
 .logo {
@@ -47,8 +48,10 @@ header {
 .site-title {
   font: italic small-caps bold 2rem/1.5 Arial, sans-serif;
   margin: 0;
+  margin-bottom: 1rem;
 }
 
+/* Navigation */
 nav {
   background-color: #004225;
   margin-top: -10px;
@@ -193,28 +196,6 @@ input[type="reset"]:hover {
   background-color: #00663c;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  aside,
-  figure {
-    float: none;
-    width: 100%;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  form {
-    flex-direction: column;
-  }
-}
-
 /* About Page */
 dl dt {
   font-weight: bold;
@@ -225,9 +206,9 @@ ul ul {
 }
 
 .student-id {
-  float: right;
   font-style: italic;
   font-size: 0.9rem;
+  margin-left: 0.5rem;
   color: #444;
 }
 
@@ -235,13 +216,21 @@ ul ul {
   font-weight: bold;
 }
 
-/* Group Photo (Left-Aligned) */
+/* Photo and Interests */
+.photo-interests {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
 .group-photo {
-  float: left;
-  margin: 1rem 1rem 1rem 0;
   width: fit-content;
   text-align: left;
+  margin: 1rem 0;
 }
+
 
 .group-photo img {
   width: 300px;
@@ -254,6 +243,10 @@ ul ul {
   font-size: 0.9rem;
   margin-top: 0.5rem;
   color: #333;
+}
+
+.group-interests {
+  flex: 1;
 }
 
 /* Form Adjustments */
@@ -279,8 +272,3 @@ ul ul {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  background-color: #fff;
-  padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}

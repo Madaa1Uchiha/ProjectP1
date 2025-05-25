@@ -1,5 +1,5 @@
 <!-- https://madaa1uchiha.github.io/ProjectP1/ -->
-<?php $pageTitle = 'LSCL Home Page'; ?>
+<?php $page_title = 'LSCL Home Page'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

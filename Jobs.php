@@ -2,7 +2,7 @@
     This is a simple HTML page for a job listing.
     It includes a title, navigation, job descriptions, and a footer.
 -->
-<?php $pageTitle = 'LSCL Jobs Page'; ?>
+<?php $page_title = 'LSCL Jobs Page'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,5 +1,5 @@
 <?php
-$page_title = 'LSCL Enhancements';
+$page_title = 'LSCL Enhancements Page';
 include 'header.inc';
 ?>
 
