@@ -2,6 +2,8 @@
 this page is where applicants fill out there information into the various forms to be submitted
 it takes various info such as their state, name, gender which role they are applying to and other important info
  -->
+ <?php $pageTitle = 'LSCL Apply Page'; ?>
+
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,21 +17,19 @@ it takes various info such as their state, name, gender which role they are appl
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <header>
-        <h1>LSCL Applications</h1>
-        <img src="images/logo.jpg" alt="LSCL Logo" class="logo" />
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html">Jobs</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php include 'header.inc'; ?>
 
     <main>
-        <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+        <form method="post" action="process_eoi.php">
+        <fieldset>
+                <legend>Position</legend>
+                <label for="position">Job Reference Number</label>
+                <select name="position" id="position" required>
+                    <option value="">Reference number</option>
+                    <option value="FSD123">FSD123</option>
+                    <option value="DS456">DS456</option>
+                </select>
+            </fieldset>
             <fieldset>
                 <legend>Your name</legend>
                 <label for="first-name">First name</label>
@@ -41,7 +41,12 @@ it takes various info such as their state, name, gender which role they are appl
                 <label for="last-name">Last name</label>
                 <input type="text" name="last-name" id="last-name" pattern="[^0-9]*" maxlength="20" required>
             </fieldset>
-
+            <fieldset>
+            <label>Skills</label>
+            <textarea name="skills1" id="skills1"></textarea>
+            <textarea name="skills2" id="skills2"></textarea>
+            <textarea name="skills3" id="skills3"></textarea>
+            </fieldset>
             <fieldset>
                 <legend>Contact details</legend>
                 <label for="email">Email</label>
@@ -67,10 +72,13 @@ it takes various info such as their state, name, gender which role they are appl
                 </select>
 
                 <label for="address">Address</label>
-                <input type="text" name="address" id="address" maxlength="40" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter and one lowercase letter.">
+                <input type="text" name="address" id="address" maxlength="40"   >
 
                 <label for="suburb">Suburb/Town</label>
                 <input type="text" name="suburb" id="suburb" required maxlength="40">
+
+                <label for="postcode">Postcode</label>
+                <input type="text" name="postcode" id="postcode">
             </fieldset>
 
             <fieldset>
@@ -89,39 +97,18 @@ it takes various info such as their state, name, gender which role they are appl
 
                 <div>
                     <label for="willing-to-move" class="checkandradio">Are you willing to move closer to our office?</label>
-                    <input type="checkbox" name="willing-to-move" id="willing-to-move" value="willing">
+                    <input type="checkbox" name="willing-to-move" id="willing-to-move" value="1">
                   </div>                  
 
                 <label for="other-skills">Other Skills</label>
                 <textarea name="other-skills" id="other-skills"></textarea>
             </fieldset>
-
-            <fieldset>
-                <legend>Position</legend>
-                <label for="position">Job Reference Number</label>
-                <select name="position" id="position" required>
-                    <option value="">Reference number</option>
-                    <option value="FSD123">FSD123</option>
-                    <option value="DS456">DS456</option>
-                </select>
-            </fieldset>
-
+            <input type="hidden" name="allow_access" value="true">
             <input type="submit" value="Apply">
             <input type="reset" value="Reset Form">
         </form>
     </main>
 
-    <footer>
-        <p>
-            <a href="mailto:info@LSCLGroup.com.au">Contact Us</a> | 
-            <a href="about.html">About</a>
-        </p>
-        <p>
-            <a href="https://github.com/Madaa1Uchiha/ProjectP1" target="_blank">GitHub Repository</a> | 
-            <a href="https://swing01group.atlassian.net/jira/software/projects/CRM/summary" target="_blank">Jira Project</a>
-        </p>
-        <hr/>
-        <p>&copy; 2025 LSCL Group – COS10026 Web Tech Project</p>
-    </footer>
+ <?php include 'footer.inc'; ?>
 </body>
 </html>

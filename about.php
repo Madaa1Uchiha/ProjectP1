@@ -1,21 +1,7 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+$page_title = 'LSCL About Page';
+include 'header.inc';
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Leo Ali" />
-  <meta name="description" content="About LSCL group for COS10026 Project Part 2" />
-  <title>About LSCL Group</title>
-  <link rel="stylesheet" href="styles/styles.css" />
-</head>
-<body>
-
-<?php include 'header.inc'; ?>
 
 <main>
   <section>
@@ -40,10 +26,10 @@ ini_set('display_errors', 1);
   </section>
 
   <section>
-    <h2>Member Contributions – Part 2</h2>
+    <h2>Member Contributions</h2>
     <dl>
       <dt>Sebastian Mills</dt>
-      <dd>PHP Lead – Modular structure, includes (`header.inc`, `nav.inc`, `footer.inc`), `index.php`, overall site structure</dd>
+      <dd>PHP Lead – Modular structure, includes, `index.php`, overall site structure</dd>
 
       <dt>Samuel Macciocca</dt>
       <dd>Job Listings – Created `jobs.php`, designed and loaded jobs from MySQL</dd>
@@ -63,7 +49,6 @@ ini_set('display_errors', 1);
       <figcaption>Team LSCL: Sebastian, Samuel, Cole, and Leo</figcaption>
     </figure>
   </section>
-
 
   <section>
     <h2>Group Interests</h2>
@@ -101,6 +86,3 @@ ini_set('display_errors', 1);
 </main>
 
 <?php include 'footer.inc'; ?>
-
-</body>
-</html>
