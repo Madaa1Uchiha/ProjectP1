@@ -158,7 +158,7 @@ body {
     margin-top: 0.5rem;
   }
   
-  input, select, textarea {
+  input:not(.exclude), select, textarea {
     padding: 0.5rem;
     margin-top: 0.3rem;
     width: 100%;
@@ -270,29 +270,9 @@ body {
   colour: #004225;
   }
 
-#male {
-  position: relative;
-  right: 50%;
-  bottom: 2em;
-}
-
-#female {
-  position: relative;
-  right: 50%;
-  bottom: 2em;
-}
-
-#other-prefer-not-to-say {
-  position: relative;
-  right: 50%;
-  bottom: 2em;
-}
-
-#willing-to-move {
-  position: relative;
-  right: 50%;
-  bottom: 2em;
-}
+  .exclude {
+    margin-left: 25px; 
+  }
 
 .checkandradio{
   position: relative;

@@ -85,17 +85,17 @@ it takes various info such as their state, name, gender which role they are appl
                 <input type="text" name="date-of-birth" id="date-of-birth" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
 
                 <label for="male" class="checkandradio">Male</label>
-                <input type="radio" name="gender" id="male" value="Male" required>
+                <input type="radio" name="gender" id="male" value="Male" required class = "exclude">
 
                 <label for="female" class="checkandradio">Female</label>
-                <input type="radio" name="gender" id="female" value="Female">
+                <input type="radio" name="gender" id="female" value="Female" class = "exclude">
 
                 <label for="other-prefer-not-to-say" class="checkandradio">Other/prefer not to say</label>
-                <input type="radio" name="gender" id="other-prefer-not-to-say" value="Other/prefer not to say">
+                <input type="radio" name="gender" id="other-prefer-not-to-say" value="Other/prefer not to say" class = "exclude">
 
                 <div>
                     <label for="willing-to-move" class="checkandradio">Are you willing to move closer to our office?</label>
-                    <input type="checkbox" name="willing-to-move" id="willing-to-move" value="1">
+                    <input type="checkbox" name="willing-to-move" id="willing-to-move" value="1" class = "exclude">
                   </div>                  
 
                 <label for="other-skills">Other Skills</label>
