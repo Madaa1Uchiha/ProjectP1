@@ -1,4 +1,5 @@
 <?php
+require_once("settings.php");
 $page_title = 'LSCL Management Page';
 
 session_set_cookie_params(0);
@@ -7,6 +8,42 @@ if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
+
+// Handle status update
+if (isset($_POST['update_status']) && isset($_POST['eoi_update_id']) && isset($_POST['new_status'])) {
+    $eoi_update_id = mysqli_real_escape_string($conn, $_POST['eoi_update_id']);
+    $new_status = mysqli_real_escape_string($conn, $_POST['new_status']);
+    $update_sql = "UPDATE EOI SET status = '$new_status' WHERE EOInumber = '$eoi_update_id'";
+    if (!mysqli_query($conn, $update_sql)) {
+        echo "Error updating status: " . mysqli_error($conn);
+    } else {
+        header("Location: manage.php");
+        exit();
+    }
+}
+
+// Delete by EOI ID
+if (isset($_GET['deleteId'])) {
+    $eoi_number = mysqli_real_escape_string($conn, $_GET['deleteId']);
+    $delete_sql = "DELETE FROM EOI WHERE EOInumber = '$eoi_number'";
+    if (!mysqli_query($conn, $delete_sql)) {
+        echo "Error deleting record: " . mysqli_error($conn);
+    } else {
+        header("Location: manage.php");
+    }
+}
+
+// Delete by reference number
+if (isset($_GET['deleteNum'])) {
+    $ref = mysqli_real_escape_string($conn, $_GET['deleteNum']);
+    $delete_sql = "DELETE FROM EOI WHERE reference_code = '$ref'";
+    if (!mysqli_query($conn, $delete_sql)) {
+        echo "Error deleting record: " . mysqli_error($conn);
+    } else {
+        header("Location: manage.php");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +106,6 @@ if (!isset($_SESSION['username'])) {
 </html>
 
 <?php
-require_once("settings.php");
 
 function displayTable($result) {
     echo "<table border='1' cellpadding='5'>";
@@ -103,33 +139,12 @@ else if (isset($_GET['name'])) {
     $result = mysqli_query($conn, $sql);
     echo (mysqli_num_rows($result) > 0) ? displayTable($result) : "No applicants found.";
 }
-// Delete by EOI ID
-else if (isset($_GET['deleteId'])) {
-    $eoi_number = mysqli_real_escape_string($conn, $_GET['deleteId']);
-    $delete_sql = "DELETE FROM EOI WHERE EOInumber = '$eoi_number'";
-    if (!mysqli_query($conn, $delete_sql)) {
-        echo "Error deleting record: " . mysqli_error($conn);
-    } else {
-        header("Location: manage.php");
-    }
-}
 else
 {
     // Default case: display all EOIs
     $sql = "SELECT * FROM EOI";
     $result = mysqli_query($conn, $sql);
     echo (mysqli_num_rows($result) > 0) ? displayTable($result) : "No applicants found.";
-}
-
-// Delete by reference number
-if (isset($_GET['deleteNum'])) {
-    $ref = mysqli_real_escape_string($conn, $_GET['deleteNum']);
-    $delete_sql = "DELETE FROM EOI WHERE reference_code = '$ref'";
-    if (!mysqli_query($conn, $delete_sql)) {
-        echo "Error deleting record: " . mysqli_error($conn);
-    } else {
-        header("Location: manage.php");
-    }
 }
 
 mysqli_close($conn);
