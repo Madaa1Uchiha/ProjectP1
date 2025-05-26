@@ -71,7 +71,7 @@ if (isset($_GET['Display_all']))
     } 
     else 
     {
-        echo "No matching found.";
+        echo "No applicants found.";
     }
 }
 else if (isset($_GET['job_number'])) 
@@ -94,7 +94,7 @@ else if (isset($_GET['job_number']))
     }
     else 
     {
-        echo "No matching found.";
+        echo "No applicants found.";
     }
 }
 else if (isset($_GET['name'])) 
@@ -117,7 +117,7 @@ else if (isset($_GET['name']))
     }
     else 
     {
-        echo "No matching found.";
+        echo "No applicants found.";
     }
 } 
 else 
@@ -139,7 +139,7 @@ else
     } 
     else
     {
-        echo "No matching found.";
+        echo "No applicants found.";
     }
 }
 
