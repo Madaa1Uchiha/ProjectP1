@@ -1,213 +1,132 @@
-<<<<<<< HEAD
-<?php $page_title = 'LSCL Management Page'; ?>
-
-=======
 <?php
+$page_title = 'LSCL Management Page';
+
 session_set_cookie_params(0);
 session_start();
-if (!isset($_SESSION['username']))
-{
+if (!isset($_SESSION['username'])) {
     header("Location: login.php");
+    exit();
 }
 ?>
->>>>>>> origin/project_part2
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>EOI_Search</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Sebastian Mills">
-        <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="LSCL Group" />
+    <title>EOI Search</title>
+    <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-    <?php include 'header.inc'; ?>
+
+<?php include 'header.inc'; ?>
+
+<main>
     <h2>Search for Applicants</h2>
-    <form method="GET" >
-        <label>Display all EOI</label>
-        <input type="submit" name="Display_all"value="Display">
+
+    <!-- Display all EOIs -->
+    <form method="GET">
+        <label>Display all EOIs</label>
+        <input type="submit" name="Display_all" value="Display">
     </form>
-    <form method="GET" >
-        <label>Search EOI by job number:</label>
-<<<<<<< HEAD
-        <input type="text" name="job_number" required>
-=======
-        <select type="text" name="job_number" required>
-        <option value="">Reference number</option>
-        <option value="FSD123">FSD123</option>
-        <option value="DS456">DS456</option>
-    </select>
->>>>>>> origin/project_part2
+
+    <!-- Search by job number -->
+    <form method="GET">
+        <label>Search EOI by Job Reference Number:</label>
+        <select name="job_number" required>
+            <option value="">Select job reference</option>
+            <option value="FSD123">FSD123</option>
+            <option value="DS456">DS456</option>
+        </select>
         <input type="submit" value="Search">
     </form>
-    <form method="GET" >
+
+    <!-- Search by name -->
+    <form method="GET">
         <label>Search Name:</label>
         <input type="text" name="name" required>
         <input type="submit" value="Search">
     </form>
-<<<<<<< HEAD
-=======
-    <form method="GET" >
+
+    <!-- Delete EOIs by reference code -->
+    <form method="GET">
         <label>Delete EOI by Job Reference Number:</label>
-        <select type="text" name="deleteNum" required>
-            <option value="">Reference number</option>
+        <select name="deleteNum" required>
+            <option value="">Select job reference</option>
             <option value="FSD123">FSD123</option>
             <option value="DS456">DS456</option>
         </select>
-        <input type="submit" value="delete">
->>>>>>> origin/project_part2
+        <input type="submit" value="Delete">
+    </form>
+
     <h2>Applicants</h2>
-    <?php include 'footer.inc'; ?> 
+
+    </main>
+    <?php include 'footer.inc'; ?>
+
 </body>
 </html>
 
 <?php
 require_once("settings.php");
 
-if (isset($_GET['Display_all'])) 
-{
+function displayTable($result) {
+    echo "<table border='1' cellpadding='5'>";
+    echo "<tr><th>EOInumber</th><th>Job Reference</th><th>First Name</th><th>Middle Name</th><th>Last Name</th>
+    <th>Skill 1</th><th>Skill 2</th><th>Skill 3</th><th>Email</th><th>Phone</th><th>State</th>
+    <th>Address</th><th>Suburb</th><th>Postcode</th><th>DOB</th><th>Gender</th><th>Willing to Move</th>
+    <th>Other Skill</th><th>Status</th><th></th></tr>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        include 'table.inc';
+    }
+    echo "</table>";
+}
+
+// Display all
+if (isset($_GET['Display_all'])) {
     $sql = "SELECT * FROM EOI";
     $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) 
-    {
-        echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
-        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
-        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th><th></th></tr>";
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-            include 'table.inc';
-        }
-        echo "</table>";
-    } 
-    else 
-    {
-<<<<<<< HEAD
-        echo "No matching found.";
-=======
-        echo "No applicants found.";
->>>>>>> origin/project_part2
-    }
+    echo (mysqli_num_rows($result) > 0) ? displayTable($result) : "No applicants found.";
 }
-else if (isset($_GET['job_number'])) 
-{
+
+// Search by job number
+if (isset($_GET['job_number'])) {
     $job_num = mysqli_real_escape_string($conn, $_GET['job_number']);
-    $sql = "SELECT * FROM EOI WHERE `reference_code` LIKE '%$job_num%'";
+    $sql = "SELECT * FROM EOI WHERE reference_code LIKE '%$job_num%'";
     $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) 
-    {
-        echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
-        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
-        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th><th></th></tr>";
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-            include 'table.inc';
-        }
-        echo "</table>";
-    }
-    else 
-    {
-<<<<<<< HEAD
-        echo "No matching found.";
-=======
-        echo "No applicants found.";
->>>>>>> origin/project_part2
-    }
+    echo (mysqli_num_rows($result) > 0) ? displayTable($result) : "No applicants found.";
 }
-else if (isset($_GET['name'])) 
-{
+
+// Search by name
+if (isset($_GET['name'])) {
     $name = mysqli_real_escape_string($conn, $_GET['name']);
-    $sql = "SELECT * FROM EOI WHERE `first_name` LIKE '%$name%' OR `last_name` LIKE '%$name%'";
+    $sql = "SELECT * FROM EOI WHERE first_name LIKE '%$name%' OR last_name LIKE '%$name%'";
     $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) 
-    {
-        echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
-        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
-        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th><th></th></tr>";
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-            include 'table.inc';
-        }
-        echo "</table>";
-    }
-    else 
-    {
-<<<<<<< HEAD
-        echo "No matching found.";
-=======
-        echo "No applicants found.";
->>>>>>> origin/project_part2
-    }
-} 
-else 
-{
-    $sql = "SELECT * FROM EOI";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) 
-    {
-        echo "<table border='1' cellpadding='5'>";
-        echo "<tr><th>EOInumber</th><th>Job Reference number</th><th>First name</th><th>Middle name</th><th>Last name</th><th>Skill 1</th><th>Skill 2</th>
-        <th>Skill 3</th><th>Email address</th><th>Phone number</th><th>State</th><th>Street address</th><th>Suburb/town</th><th>Postcode</th><th>DOB</th>
-        <th>Gender</th><th>Willing to Move</th><th>Other Skill</th><th>Status</th><th></th></tr>";
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-            include 'table.inc';
-        }
-        echo "</table>";
-    } 
-    else
-    {
-<<<<<<< HEAD
-        echo "No matching found.";
-    }
-}
-=======
-        echo "No applicants found.";
-    }
+    echo (mysqli_num_rows($result) > 0) ? displayTable($result) : "No applicants found.";
 }
 
->>>>>>> origin/project_part2
-if (isset($_GET['deleteId'])) 
-{
+// Delete by EOI ID
+if (isset($_GET['deleteId'])) {
     $eoi_number = mysqli_real_escape_string($conn, $_GET['deleteId']);
     $delete_sql = "DELETE FROM EOI WHERE EOInumber = '$eoi_number'";
-    
-    if (!mysqli_query($conn, $delete_sql)) 
-    {
+    if (!mysqli_query($conn, $delete_sql)) {
         echo "Error deleting record: " . mysqli_error($conn);
-    }
-<<<<<<< HEAD
-}
-
-mysqli_close($conn);
-?>
-=======
-    else 
-    {
+    } else {
         header("Location: manage.php");
     }
 }
 
-if (isset($_GET['deleteNum'])) 
-{
-    $deleteNum = mysqli_real_escape_string($conn, $_GET['deleteNum']);
-    $delete_sql = "DELETE FROM EOI WHERE reference_code = '$deleteNum'";
-    
-    if (!mysqli_query($conn, $delete_sql)) 
-    {
+// Delete by reference number
+if (isset($_GET['deleteNum'])) {
+    $ref = mysqli_real_escape_string($conn, $_GET['deleteNum']);
+    $delete_sql = "DELETE FROM EOI WHERE reference_code = '$ref'";
+    if (!mysqli_query($conn, $delete_sql)) {
         echo "Error deleting record: " . mysqli_error($conn);
-    }
-        else 
-    {
+    } else {
         header("Location: manage.php");
     }
 }
+
 mysqli_close($conn);
 ?>
->>>>>>> origin/project_part2
