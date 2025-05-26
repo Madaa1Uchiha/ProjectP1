@@ -89,25 +89,22 @@ if (isset($_GET['Display_all'])) {
     $result = mysqli_query($conn, $sql);
     echo (mysqli_num_rows($result) > 0) ? displayTable($result) : "No applicants found.";
 }
-
 // Search by job number
-if (isset($_GET['job_number'])) {
+else if (isset($_GET['job_number'])) {
     $job_num = mysqli_real_escape_string($conn, $_GET['job_number']);
     $sql = "SELECT * FROM EOI WHERE reference_code LIKE '%$job_num%'";
     $result = mysqli_query($conn, $sql);
     echo (mysqli_num_rows($result) > 0) ? displayTable($result) : "No applicants found.";
 }
-
 // Search by name
-if (isset($_GET['name'])) {
+else if (isset($_GET['name'])) {
     $name = mysqli_real_escape_string($conn, $_GET['name']);
     $sql = "SELECT * FROM EOI WHERE first_name LIKE '%$name%' OR last_name LIKE '%$name%'";
     $result = mysqli_query($conn, $sql);
     echo (mysqli_num_rows($result) > 0) ? displayTable($result) : "No applicants found.";
 }
-
 // Delete by EOI ID
-if (isset($_GET['deleteId'])) {
+else if (isset($_GET['deleteId'])) {
     $eoi_number = mysqli_real_escape_string($conn, $_GET['deleteId']);
     $delete_sql = "DELETE FROM EOI WHERE EOInumber = '$eoi_number'";
     if (!mysqli_query($conn, $delete_sql)) {
@@ -115,6 +112,13 @@ if (isset($_GET['deleteId'])) {
     } else {
         header("Location: manage.php");
     }
+}
+else
+{
+    // Default case: display all EOIs
+    $sql = "SELECT * FROM EOI";
+    $result = mysqli_query($conn, $sql);
+    echo (mysqli_num_rows($result) > 0) ? displayTable($result) : "No applicants found.";
 }
 
 // Delete by reference number
