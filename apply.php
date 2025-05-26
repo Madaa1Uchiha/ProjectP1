@@ -19,14 +19,18 @@ it takes various info such as their state, name, gender which role they are appl
 
     <main>
         <form method="post" action="process_eoi.php">
-        <fieldset>
-                <legend>Position</legend>
-                <label for="position">Job Reference Number</label>
-                <select name="position" id="position" required>
-                    <option value="">Reference number</option>
-                    <option value="FSD123">FSD123</option>
-                    <option value="DS456">DS456</option>
-                </select>
+        <fieldset><?php
+        $job_ref = trim($_POST['job_ref']);
+        
+                echo ('<legend>Position</legend>'),
+                 ('<label for="position">Job Reference Number</label>'),
+                 ('<select name="position" id="position" required>'),
+                     ('<option value=$job_ref>'), ("(Selected from previous page)"),($job_ref), ('</option>'),
+                     ('<option value="FR432">FR432</option>'),
+                     ('<option value="DS456">DS456</option>'),
+                 ('</select>');
+                
+                ?>
             </fieldset>
             <fieldset>
                 <legend>Your name</legend>
