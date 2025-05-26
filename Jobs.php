@@ -17,23 +17,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <header>
-        
-    <h1>LSCL Jobs Page</h1>
-        
-        <img src="images/logo.jpg" alt="LSCL Logo" class="logo" />
-       
-        <nav>
-           
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="jobs.php">Jobs</a></li>
-                <li><a href="apply.php">Apply</a></li>
-                <li><a href="about.php">About</a></li>
-            </ul>
-      
-        </nav>
-    </header>
+    <?php include 'header.inc'; ?>
 
     <main>
         <?php while($row = $result->fetch_assoc()): ?>
@@ -70,9 +54,7 @@ $result = $conn->query($sql);
    
     </main>
 
-    <footer>
-        <p>&copy; 2025 Jobs Page. All rights reserved.</p>
-    </footer>
+<?php include 'footer.inc'; ?>
 
     <!-- Apply Form -->
     <form action="apply.php" method="post">
