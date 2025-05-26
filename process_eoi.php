@@ -96,46 +96,88 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS `project_part_2`.`eoi` (`EOInumb
 
 
        if (mysqli_num_rows($emailResult) > 0) {
-           // Email already exists
+           
            
            print("<h1>This email address is already in use. Please use a different email.</h1>");
        } else {
 
-$query = "INSERT INTO eoi (reference_code, first_name, middle_name, last_name, 
-skills1, skills2, skills3, email_address, phone_number, state, address, suburb_town, postcode, date_of_birth, gender,
-willing_to_move, other_skills, `status`) VALUES ('$positionSAN', '$firstnameSAN', '$middlenameSAN', '$lastnameSAN'
-, '$skills1SAN', '$skills2SAN', '$skills3SAN', '$emailSAN', '$phonenumberSAN', '$stateSAN'
-, '$addressSAN', '$suburbSAN','$postcodeSAN', '$dobSAN', '$genderSAN', '$willingtomoveSAN', '$otherskillsSAN', 'NEW')";
-$result = mysqli_query($conn, $query);
-       
-if (mysqli_errno($conn) == 1062) {
-    print '<p>Email already in use! please use another.</p>';
-}
-    else {
-if ($result) {
-    echo "<h1>Expression of interest recieved\nyour unique EOI number is";
-     $EOInum = "SELECT EOInumber FROM `eoi` WHERE email_address = '$email' ";
-    $getEOInum = mysqli_query($conn, $EOInum);
-   
-   
-    while($row = mysqli_fetch_assoc($getEOInum)) {
-        echo ": " . $row["EOInumber"]. "</h1><br>";
-      }
-    
 
+
+        
+
+$query = "INSERT INTO eoi (
+    reference_code, 
+    first_name, 
+    middle_name, 
+    last_name, 
+    skills1, 
+    skills2, 
+    skills3, 
+    email_address, 
+    phone_number, 
+    state, 
+    address, 
+    suburb_town, 
+    postcode, 
+    date_of_birth, 
+    gender, 
+    willing_to_move, 
+    other_skills, 
+    `status`
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'NEW')";
+
+
+$stmt = mysqli_prepare($conn, $query);
+if (!$stmt) {
+    die("Error preparing statement: " . mysqli_error($conn));
 }
-else {
-    echo "Application failed. Please try again.";
+
+
+mysqli_stmt_bind_param(
+    $stmt,
+    "sssssssssssssssbs", 
+    $positionSAN,
+    $firstnameSAN,
+    $middlenameSAN,
+    $lastnameSAN,
+    $skills1SAN,
+    $skills2SAN,
+    $skills3SAN,
+    $emailSAN,
+    $phonenumberSAN,
+    $stateSAN,
+    $addressSAN,
+    $suburbSAN,
+    $postcodeSAN,
+    $dobSAN,
+    $genderSAN,
+    $willingtomoveSAN,
+    $otherskillsSAN
+);
+
+
+if (mysqli_stmt_execute($stmt)) {
+    
+    $EOInumber = mysqli_insert_id($conn);
+    echo "<h1>Expression of interest received. Your unique EOI number is: $EOInumber</h1>";
+} else {
    
-  }
+    if (mysqli_errno($conn) == 1062) {
+        echo "<p>Email already in use! Please use another.</p>";
+    } else {
+        echo "<p>Error submitting application: " . mysqli_error($conn) . "</p>";
+    }
+}
+
+
+mysqli_stmt_close($stmt);
 }
 }
     }
 else {
     echo ("email format is invalid");}
-}
-else 
-{echo ("integer is invalid");}
+
+
 
 
 
