@@ -21,6 +21,7 @@ it takes various info such as their state, name, gender which role they are appl
 
     <main>
         <form method="post" action="process_eoi.php">
+<<<<<<< HEAD
         <fieldset>
                 <legend>Position</legend>
                 <label for="position">Job Reference Number</label>
@@ -29,6 +30,20 @@ it takes various info such as their state, name, gender which role they are appl
                     <option value="FSD123">FSD123</option>
                     <option value="DS456">DS456</option>
                 </select>
+=======
+        <fieldset><?php
+        $job_ref = trim($_POST['job_ref']);
+        
+                echo ('<legend>Position</legend>'),
+                 ('<label for="position">Job Reference Number</label>'),
+                 ('<select name="position" id="position" required>'),
+                     ('<option value=$job_ref>'), ("(Selected from previous page)"),($job_ref), ('</option>'),
+                     ('<option value="FR432">FR432</option>'),
+                     ('<option value="DS456">DS456</option>'),
+                 ('</select>');
+                
+                ?>
+>>>>>>> origin/project_part2
             </fieldset>
             <fieldset>
                 <legend>Your name</legend>
@@ -87,17 +102,21 @@ it takes various info such as their state, name, gender which role they are appl
                 <input type="text" name="date-of-birth" id="date-of-birth" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
 
                 <label for="male" class="checkandradio">Male</label>
-                <input type="radio" name="gender" id="male" value="Male" required>
+                <input type="radio" name="gender" id="male" value="Male" required class = "exclude">
 
                 <label for="female" class="checkandradio">Female</label>
-                <input type="radio" name="gender" id="female" value="Female">
+                <input type="radio" name="gender" id="female" value="Female" class = "exclude">
 
                 <label for="other-prefer-not-to-say" class="checkandradio">Other/prefer not to say</label>
-                <input type="radio" name="gender" id="other-prefer-not-to-say" value="Other/prefer not to say">
+                <input type="radio" name="gender" id="other-prefer-not-to-say" value="Other/prefer not to say" class = "exclude">
 
                 <div>
                     <label for="willing-to-move" class="checkandradio">Are you willing to move closer to our office?</label>
+<<<<<<< HEAD
                     <input type="checkbox" name="willing-to-move" id="willing-to-move" value="1">
+=======
+                    <input type="checkbox" name="willing-to-move" id="willing-to-move" value="1" class = "exclude">
+>>>>>>> origin/project_part2
                   </div>                  
 
                 <label for="other-skills">Other Skills</label>

@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 <?php $page_title = 'LSCL Management Page'; ?>
 
+=======
+<?php
+session_set_cookie_params(0);
+session_start();
+if (!isset($_SESSION['username']))
+{
+    header("Location: login.php");
+}
+?>
+>>>>>>> origin/project_part2
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +29,15 @@
     </form>
     <form method="GET" >
         <label>Search EOI by job number:</label>
+<<<<<<< HEAD
         <input type="text" name="job_number" required>
+=======
+        <select type="text" name="job_number" required>
+        <option value="">Reference number</option>
+        <option value="FSD123">FSD123</option>
+        <option value="DS456">DS456</option>
+    </select>
+>>>>>>> origin/project_part2
         <input type="submit" value="Search">
     </form>
     <form method="GET" >
@@ -26,6 +45,17 @@
         <input type="text" name="name" required>
         <input type="submit" value="Search">
     </form>
+<<<<<<< HEAD
+=======
+    <form method="GET" >
+        <label>Delete EOI by Job Reference Number:</label>
+        <select type="text" name="deleteNum" required>
+            <option value="">Reference number</option>
+            <option value="FSD123">FSD123</option>
+            <option value="DS456">DS456</option>
+        </select>
+        <input type="submit" value="delete">
+>>>>>>> origin/project_part2
     <h2>Applicants</h2>
     <?php include 'footer.inc'; ?> 
 </body>
@@ -53,7 +83,11 @@ if (isset($_GET['Display_all']))
     } 
     else 
     {
+<<<<<<< HEAD
         echo "No matching found.";
+=======
+        echo "No applicants found.";
+>>>>>>> origin/project_part2
     }
 }
 else if (isset($_GET['job_number'])) 
@@ -76,7 +110,11 @@ else if (isset($_GET['job_number']))
     }
     else 
     {
+<<<<<<< HEAD
         echo "No matching found.";
+=======
+        echo "No applicants found.";
+>>>>>>> origin/project_part2
     }
 }
 else if (isset($_GET['name'])) 
@@ -99,7 +137,11 @@ else if (isset($_GET['name']))
     }
     else 
     {
+<<<<<<< HEAD
         echo "No matching found.";
+=======
+        echo "No applicants found.";
+>>>>>>> origin/project_part2
     }
 } 
 else 
@@ -121,9 +163,16 @@ else
     } 
     else
     {
+<<<<<<< HEAD
         echo "No matching found.";
     }
 }
+=======
+        echo "No applicants found.";
+    }
+}
+
+>>>>>>> origin/project_part2
 if (isset($_GET['deleteId'])) 
 {
     $eoi_number = mysqli_real_escape_string($conn, $_GET['deleteId']);
@@ -133,7 +182,32 @@ if (isset($_GET['deleteId']))
     {
         echo "Error deleting record: " . mysqli_error($conn);
     }
+<<<<<<< HEAD
 }
 
 mysqli_close($conn);
 ?>
+=======
+    else 
+    {
+        header("Location: manage.php");
+    }
+}
+
+if (isset($_GET['deleteNum'])) 
+{
+    $deleteNum = mysqli_real_escape_string($conn, $_GET['deleteNum']);
+    $delete_sql = "DELETE FROM EOI WHERE reference_code = '$deleteNum'";
+    
+    if (!mysqli_query($conn, $delete_sql)) 
+    {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+        else 
+    {
+        header("Location: manage.php");
+    }
+}
+mysqli_close($conn);
+?>
+>>>>>>> origin/project_part2
