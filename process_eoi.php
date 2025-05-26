@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>process applications</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
 <?php
 require_once("settings.php");
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
@@ -5,18 +14,23 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-
 if (!isset($_POST['allow_access'])) {
     // The user hasn't submitted the form, deny access.
     
     header("Location: apply.php");
     die();
   }
-else{
+?>
+
+  
+
+    
+
+<?php include 'header.inc';     ?>
 
 
-
-
+<main>
+<?php
 // getting the forms data
 $position = trim($_POST['position']);
 $firstname = trim($_POST['first-name']);
@@ -78,9 +92,13 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS `project_part_2`.`eoi` (`EOInumb
        $checkEmailQuery = "SELECT email_address FROM eoi WHERE email_address = '$emailSAN'";
        $emailResult = mysqli_query($conn, $checkEmailQuery);
        
+
+
+
        if (mysqli_num_rows($emailResult) > 0) {
            // Email already exists
-           die("This email address is already in use. Please use a different email.");
+           
+           print("<h1>This email address is already in use. Please use a different email.</h1>");
        } else {
 
 $query = "INSERT INTO eoi (reference_code, first_name, middle_name, last_name, 
@@ -91,17 +109,17 @@ willing_to_move, other_skills, `status`) VALUES ('$positionSAN', '$firstnameSAN'
 $result = mysqli_query($conn, $query);
        
 if (mysqli_errno($conn) == 1062) {
-    print 'Email already in use! please use another.';
+    print '<p>Email already in use! please use another.</p>';
 }
     else {
 if ($result) {
-    echo "Expression of interest recieved\nyour unique EOI number is";
+    echo "<h1>Expression of interest recieved\nyour unique EOI number is";
      $EOInum = "SELECT EOInumber FROM `eoi` WHERE email_address = '$email' ";
     $getEOInum = mysqli_query($conn, $EOInum);
    
    
     while($row = mysqli_fetch_assoc($getEOInum)) {
-        echo ": " . $row["EOInumber"]. "<br>";
+        echo ": " . $row["EOInumber"]. "</h1><br>";
       }
     
 
@@ -118,5 +136,13 @@ else {
 }
 else 
 {echo ("integer is invalid");}
-}
+
+
+
 ?>
+<?php
+include 'footer.inc';
+?>
+</main>
+</body>
+</html>
