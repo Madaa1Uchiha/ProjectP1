@@ -20,8 +20,17 @@ it takes various info such as their state, name, gender which role they are appl
     <main>
         <form method="post" action="process_eoi.php">
         <fieldset><?php
-        $job_ref = trim($_POST['job_ref']);
-        
+        $job_ref = @trim($_POST['job_ref']);
+        if (empty ($job_ref)){
+            echo ('<legend>Position</legend>'),
+            ('<label for="position">Job Reference Number</label>'),
+            ('<select name="position" id="position" required>'),
+                ('<option> Reference Number</option>'),
+                ('<option value="FR432">FR432</option>'),
+                ('<option value="DS456">DS456</option>'),
+            ('</select>');    
+        }
+        else {
                 echo ('<legend>Position</legend>'),
                  ('<label for="position">Job Reference Number</label>'),
                  ('<select name="position" id="position" required>'),
@@ -29,7 +38,7 @@ it takes various info such as their state, name, gender which role they are appl
                      ('<option value="FR432">FR432</option>'),
                      ('<option value="DS456">DS456</option>'),
                  ('</select>');
-                
+        }
                 ?>
             </fieldset>
             <fieldset>
