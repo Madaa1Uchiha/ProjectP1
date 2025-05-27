@@ -38,7 +38,7 @@ it takes various info such as their state, name, gender which role they are appl
                 <input type="text" name="first-name" id="first-name" pattern="[^0-9]*" maxlength="20" required>
 
                 <label for="middle-name">Middle name</label>
-                <input type="text" name="middle-name" id="middle-name" value="optional" pattern="[^0-9]*" maxlength="20">
+                <input type="text" name="middle-name" id="middle-name" value="" pattern="[^0-9]*" maxlength="20">
 
                 <label for="last-name">Last name</label>
                 <input type="text" name="last-name" id="last-name" pattern="[^0-9]*" maxlength="20" required>
