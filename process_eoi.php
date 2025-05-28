@@ -33,6 +33,10 @@ if (!isset($_POST['allow_access'])) {
 <?php
 // getting the forms data
 $position = trim($_POST['position']);
+if ($position = "Reference number") {
+    header("Location: apply.php");
+    
+}
 $firstname = trim($_POST['first-name']);
 $middlename = trim($_POST['middle-name']);
 $lastname = trim($_POST['last-name']);

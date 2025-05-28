@@ -28,7 +28,7 @@ $page_title = 'LSCL Apply Page';
             echo ('<legend>Position</legend>'),
             ('<label for="position">Job Reference Number</label>'),
             ('<select name="position" id="position" required>'),
-                ('<option selected disabled> Reference Number</option>'),
+                ('<option selected="selected">Select a reference number</option>'),
                 ('<option value="FR432">FR432</option>'),
                 ('<option value="DS456">DS456</option>'),
             ('</select>');    
