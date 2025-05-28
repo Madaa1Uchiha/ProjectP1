@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="LSCL Group" />
+  <meta name="author" content=<?php $page_title?> />
   <meta name="description" content="COS10026 Project Website" />
   <title><?php echo isset($page_title) ? htmlspecialchars($page_title) : 'LSCL Group'; ?></title>
   <link rel="stylesheet" href="styles/styles.css" />

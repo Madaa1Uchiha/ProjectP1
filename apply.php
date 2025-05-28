@@ -2,6 +2,9 @@
 this page is where applicants fill out there information into the various forms to be submitted
 it takes various info such as their state, name, gender which role they are applying to and other important info
  -->
+<?php
+$page_title = 'LSCL Apply Page';
+?>
  <!DOCTYPE html>
 <html lang="en">
 <head>

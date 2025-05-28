@@ -1,7 +1,7 @@
 <?php
 // Database connection
 require_once("settings.php");
-
+$page_title = 'LSCL Jobs Page';
 $sql = "SELECT job_ref, job_title, salary, description, responsibilities, skills FROM jobs";
 $result = $conn->query($sql);
 ?>
