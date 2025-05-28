@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>process applications</title>
+    <title>Process Applications</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
+<body class="confirmation-page">
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -19,7 +19,7 @@ if (!$conn) {
 
 if (!isset($_POST['allow_access'])) {
     header("Location: apply.php");
-    die();
+    exit();
 }
 ?>
 
@@ -27,11 +27,13 @@ if (!isset($_POST['allow_access'])) {
 
 <main>
 <?php
+// Get form data
 $position = trim($_POST['position']);
-if ($position = "Reference number") {
+if ($position == "Reference number") {
     header("Location: apply.php");
-    
+    exit();
 }
+
 $firstname = trim($_POST['first-name']);
 $middlename = trim($_POST['middle-name']);
 $lastname = trim($_POST['last-name']);
@@ -49,10 +51,9 @@ $willingtomove = isset($_POST['willing-to-move']) ? 1 : 0;
 $otherskills = trim($_POST['other-skills']);
 $postcode = trim($_POST['postcode']);
 
-// Basic email validation
+// Basic validation
 if (!empty($phonenumber) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-
-    // Table creation
+    // Create table if not exists
     $createTableQuery = "CREATE TABLE IF NOT EXISTS `project_part_2`.`eoi` (
         `EOInumber` INT NOT NULL AUTO_INCREMENT,
         `reference_code` TEXT NOT NULL,
@@ -88,6 +89,7 @@ if (!empty($phonenumber) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (mysqli_stmt_num_rows($checkStmt) > 0) {
         echo "<h1>This email address is already in use. Please use a different email.</h1>";
     } else {
+        // Insert new record
         $query = "INSERT INTO eoi (
             reference_code, first_name, middle_name, last_name, skills1, skills2, skills3,
             email_address, phone_number, state, address, suburb_town, postcode,
@@ -123,7 +125,8 @@ if (!empty($phonenumber) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
         if (mysqli_stmt_execute($stmt)) {
             $EOInumber = mysqli_insert_id($conn);
-            echo "<h1>Expression of interest received. Your unique EOI number is: $EOInumber</h1>";
+            echo "<h1>Expression of interest received.</h1>";
+            echo "<p>Your unique EOI number is: <strong>$EOInumber</strong></p>";
         } else {
             if (mysqli_errno($conn) == 1062) {
                 echo "<p>Email already in use! Please use another.</p>";
@@ -140,7 +143,7 @@ if (!empty($phonenumber) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "<p>Invalid email format or missing phone number.</p>";
 }
 ?>
-<?php include 'footer.inc'; ?>
 </main>
+<?php include 'footer.inc'; ?>
 </body>
 </html>
