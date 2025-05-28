@@ -28,8 +28,10 @@ if (!isset($_POST['allow_access'])) {
 <main>
 <?php
 // Get form data
+
 $position = trim($_POST['position']);
-if ($position = "Select a reference number") {
+
+if ($position == "Select a reference number") {
     header("Location: apply.php");
     exit();
 }
