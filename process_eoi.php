@@ -28,7 +28,7 @@ if (!isset($_POST['allow_access'])) {
 <main>
 <?php
 $position = trim($_POST['position']);
-if ($position = "Reference number") {
+if ($position = "Select a reference number") {
     header("Location: apply.php");
     
 }
